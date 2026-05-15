@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>O Universo dos Agentes de IA</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#FFFFFF;
+  --s1:#FAFAF8;--s2:#F5F4F0;--s3:#EDECE8;
+  --ln:#E5E7EB;--ln2:#D1D5DB;
+  --tx:#111827;--tx7:#374151;--tx5:#6B7280;--tx3:#9CA3AF;
+  --gold:#D97706;--gold2:#F59E0B;--gold3:#FBBF24;
+  --goldb:rgba(245,158,11,.1);--goldbl:rgba(245,158,11,.06);
+  --blue:#1A56FF;--bluep:rgba(26,86,255,.08);--blueb:rgba(26,86,255,.2);
+  --dp:'Inter',sans-serif;--bd:'Inter',sans-serif;--mn:'Inter',monospace;
+  --r:12px;
+}
+html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);font-family:var(--bd);color:var(--tx);-webkit-font-smoothing:antialiased}
+
+/* DECK */
+.deck{position:relative;width:100vw;height:100vh;overflow:hidden}
+.slide{position:absolute;inset:0;opacity:0;transform:translateY(20px);transition:opacity .44s cubic-bezier(.22,1,.36,1),transform .44s cubic-bezier(.22,1,.36,1);pointer-events:none;overflow:hidden;background:var(--bg)}
+.slide.active{opacity:1;transform:none;pointer-events:all}
+.slide.out{opacity:0;transform:translateY(-18px)}
+
+/* BG DECORATIONS */
+.bg-orb{position:absolute;border-radius:50%;filter:blur(90px);pointer-events:none;z-index:0}
+.bg-grid{position:absolute;inset:0;z-index:0;background-image:linear-gradient(rgba(0,0,0,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,0,0,.03) 1px,transparent 1px);background-size:48px 48px}
+
+/* INNER */
+.si{padding:clamp(32px, 6vh, 64px) clamp(32px, 8vw, 120px); height:100%; display:flex; flex-direction:column; position:relative; z-index:2; overflow-y:auto; overflow-x:hidden; gap:clamp(16px, 3vh, 32px)}
+.si.sc{overflow-y:auto;padding-bottom:100px}
+.si::-webkit-scrollbar, .si.sc::-webkit-scrollbar{width:3px}
+.si::-webkit-scrollbar-thumb, .si.sc::-webkit-scrollbar-thumb{background:var(--ln2);border-radius:2px}
+
+/* HEADER */
+.pre{font-family:var(--mn);font-size:clamp(9px, 0.8vw, 11px);letter-spacing:.22em;text-transform:uppercase;color:var(--tx3);margin:0}
+.pre.gold{color:var(--blue)}
+.h1{font-family:var(--dp);font-weight:800;font-size:clamp(40px, 5vw, 80px);letter-spacing:-.04em;line-height:1.05;color:var(--tx);margin:0}
+.h1 em{color:var(--blue);font-style:normal}
+.h1 em.blue{color:var(--blue)}
+.tag{font-family:var(--mn);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--tx3);background:var(--s2);border:1px solid var(--ln);border-radius:100px;padding:3px 11px;white-space:nowrap;margin-top:3px}
+
+/* DIVIDERS */
+.div{width:100%;height:1px;background:var(--ln);flex-shrink:0}
+.divv{width:1px;background:var(--ln);flex-shrink:0;align-self:stretch}
+
+/* LAYOUT */
+.row{display:flex;gap:0}
+.col{display:flex;flex-direction:column;gap:10px}
+.grow{flex:1; display:flex; flex-direction:column; justify-content:center; align-items:center}
+.pad-r{padding-right:4vw}
+.pad-l{padding-left:4vw}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:clamp(16px, 3vw, 48px);align-items:start}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:clamp(12px, 2vw, 32px);align-items:start}
+.g4{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:clamp(10px, 1.5vw, 24px);align-items:start}
+
+/* Adaptive Card Grids */
+.cg{display:grid; gap:16px; align-items:start; width:100%; max-width:1000px}
+.cg-stack{grid-template-columns:minmax(300px, 800px)}
+.cg-2x2{grid-template-columns:repeat(2, 1fr); justify-content:center; gap:20px}
+.cg-square{grid-template-columns:repeat(3, 1fr); gap:16px}
+.cg-square .card{aspect-ratio: 1.5 / 1; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center}
+
+
+/* CARDS */
+.card{background:var(--s1);border:1px solid var(--ln);border-radius:var(--r);padding:clamp(12px, 1.5vw, 24px);position:relative; transition: transform 0.2s ease;}
+.card.gold-border{border-color:rgba(245,158,11,.35);background:rgba(255,251,235,.6)}
+.card.blue-card{background:var(--bluep);border-color:var(--blueb)}
+
+/* TEXT */
+.lede{font-size:clamp(18px, 1.5vw, 24px);font-weight:400;line-height:1.6;color:var(--tx7);max-width:800px}
+.lede strong{color:var(--tx);font-weight:600}
+.lede em{color:var(--blue);font-style:normal}
+.body{font-size:clamp(15px, 1.2vw, 18px);line-height:1.6;color:var(--tx5)}
+.body strong{color:var(--tx7);font-weight:500}
+.cap{font-family:var(--mn);font-size:clamp(9px, 0.7vw, 10px);letter-spacing:.2em;text-transform:uppercase;color:var(--tx3)}
+
+/* LIST */
+.list{display:flex;flex-direction:column;gap:0}
+.li{display:flex;align-items:flex-start;gap:12px;padding:12px 0;border-bottom:1px solid var(--ln)}
+.li:last-child{border-bottom:none}
+.li-num{font-family:var(--mn);font-size:10px;color:var(--gold);min-width:20px;padding-top:1px;font-weight:600}
+.li-body{flex:1}
+.li-title{font-size:clamp(16px, 1.3vw, 22px);font-weight:700;color:var(--tx);margin-bottom:4px}
+.li-text{font-size:clamp(12px, 0.9vw, 14px);color:var(--tx5);line-height:1.5}
+.li-text strong{color:var(--tx7);font-weight:500}
+
+/* BADGE */
+.badge{display:inline-flex;align-items:center;padding:3px 9px;border-radius:100px;font-size:10.5px;font-weight:500}
+.badge-gold{background:rgba(245,158,11,.12);color:#92400E;border:1px solid rgba(245,158,11,.3)}
+.badge-blue{background:rgba(26,86,255,.08);color:#1A56FF;border:1px solid rgba(26,86,255,.2)}
+.badge-green{background:rgba(16,185,129,.08);color:#065F46;border:1px solid rgba(16,185,129,.25)}
+.badge-gray{background:var(--s2);color:var(--tx5);border:1px solid var(--ln)}
+
+/* NAV */
+#pgbar{position:fixed;top:0;left:0;height:4px;background:linear-gradient(90deg,var(--blue),var(--blueb));transition:width .38s ease;z-index:999}
+.nav{position:fixed;bottom:30px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:12px;z-index:500}
+.nb{width:44px;height:44px;border-radius:50%;border:1px solid var(--ln2);background:#fff;color:var(--tx);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:bold;transition:all .2s;box-shadow:0 4px 20px rgba(0,0,0,.12)}
+.nb:hover:not(:disabled){background:var(--blue);border-color:var(--blue);color:#fff;transform:scale(1.05)}
+.nb:disabled{opacity:.3;cursor:not-allowed;transform:none}
+.ncnt{font-family:var(--mn);font-size:13px;color:var(--tx);text-align:center;font-weight:bold;background:#fff;padding:8px 18px;border-radius:100px;border:1px solid var(--ln2);box-shadow:0 4px 20px rgba(0,0,0,.12)}
+.kb{display:none}
+
+/* Code block */
+.code{background:var(--s2);border:1px solid var(--ln);border-radius:8px;padding:14px 16px;font-family:var(--mn);font-size:12px;line-height:1.7;color:var(--tx5)}
+.ck{color:var(--blue)}.cv{color:#065F46}.cs{color:#92400E}
+.icon{width:clamp(20px, 2vw, 32px);height:clamp(20px, 2vw, 32px);color:var(--blue);stroke-width:2}
+.icon-gold{color:var(--gold)}
+</style>
+</head>
+<body>
+<div id="pgbar"></div>
+<div class="nav" id="nav">
+  <button class="nb" id="prevBtn" title="Anterior">←</button>
+  <div class="ncnt" id="pageCounter"></div>
+  <button class="nb" id="nextBtn" title="Próximo">→</button>
+</div>
+<div class="deck" id="deck">
+
+<!-- ══ S1: CAPA (0) ══ -->
+<div class="slide active" data-i="0" style="background:var(--bg)">
+  <div class="bg-orb" style="width:600px;height:600px;bottom:-200px;right:-150px;background:rgba(26,86,255,.08)"></div>
+  <div class="bg-orb" style="width:400px;height:400px;top:-120px;left:-80px;background:rgba(26,86,255,.05)"></div>
+  <div style="display:flex;height:100%;position:relative;z-index:2">
+    <div style="flex:1;display:flex;flex-direction:column;justify-content:center;padding:clamp(32px, 6vh, 64px) clamp(32px, 8vw, 120px)">
+      <div style="font-family:var(--mn);font-size:clamp(9px, 0.8vw, 11px);letter-spacing:.26em;text-transform:uppercase;color:var(--blue);margin-bottom:24px;display:flex;align-items:center;gap:10px">
+        <div style="width:24px;height:1px;background:var(--blue)"></div>
+        Maio 2026
+      </div>
+      <h1 style="font-family:var(--dp);font-weight:800;font-size:clamp(36px, 4.8vw, 78px);letter-spacing:-.04em;line-height:1;color:var(--tx);margin-bottom:32px">Agentes de IA:<br><span style="font-size:.7em;color:var(--tx5);font-weight:400">do botão no Zapier ao time que</span><br><span style="color:var(--blue)">escreve software sozinho.</span></h1>
+      <div style="display:flex;gap:clamp(20px, 4vw, 60px);margin-top:20px">
+        <div>
+          <div style="font-family:var(--mn);font-size:10px;color:var(--tx3);text-transform:uppercase;margin-bottom:4px">Host Técnico</div>
+          <div style="font-size:15px;font-weight:700;color:var(--tx)">Engenheiro de IA</div>
+        </div>
+        <div>
+          <div style="font-family:var(--mn);font-size:10px;color:var(--tx3);text-transform:uppercase;margin-bottom:4px">Host Negócio</div>
+          <div style="font-size:15px;font-weight:700;color:var(--tx)">Estrategista de Produto</div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ S2: QUEM SOMOS (1) ══ -->
+<div class="slide" data-i="1">
+  <div class="bg-orb" style="width:400px;height:400px;top:-100px;right:-100px;background:rgba(26,86,255,.04)"></div>
+  <div class="si">
+    <div class="pre gold">Introdução</div>
+    <h2 class="h1" style="margin-bottom:clamp(20px, 4vh, 40px)">Quem <em>somos?</em></h2>
+    <div class="grow">
+      <div class="cg cg-stack">
+        <div class="card" style="display:flex; align-items:center; gap:20px">
+          <i data-lucide="building-2" class="icon" style="margin-bottom:0"></i>
+          <div style="flex:1">
+            <div class="li-title">Empresa / Contexto</div>
+            <p class="body">Líderes em automação e implementação de soluções de IA para escala corporativa.</p>
+          </div>
+        </div>
+        <div class="card" style="display:flex; align-items:center; gap:20px">
+          <i data-lucide="target" class="icon" style="margin-bottom:0"></i>
+          <div style="flex:1">
+            <div class="li-title">Nossa Missão</div>
+            <p class="body">Transformar o hype da IA em resultado real através de agentes autônomos e eficientes.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ S3: A PERGUNTA (2) ══ -->
+<div class="slide" data-i="2">
+  <div class="bg-orb" style="width:600px;height:600px;bottom:-200px;left:-100px;background:rgba(26,86,255,.03)"></div>
+  <div class="si">
+    <div class="pre gold">A Reflexão</div>
+    <h2 class="h1" style="margin-bottom:clamp(24px, 5vh, 48px); max-width:900px">"Se você tivesse um estagiário sênior que <em>nunca dorme</em>, o que você delegaria hoje?"</h2>
+    <div class="g3 grow" style="gap:clamp(12px, 2vw, 24px)">
+      <div class="card">
+        <i data-lucide="settings" class="icon" style="margin-bottom:12px"></i>
+        <div class="li-title">Operações</div>
+        <p class="body">Processos repetitivos e fluxos de dados manuais.</p>
+      </div>
+      <div class="card">
+        <i data-lucide="palette" class="icon" style="margin-bottom:12px"></i>
+        <div class="li-title">Criatividade</div>
+        <p class="body">Primeiros drafts, pesquisas de mercado e brainstorming.</p>
+      </div>
+      <div class="card">
+        <i data-lucide="bar-chart-3" class="icon" style="margin-bottom:12px"></i>
+        <div class="li-title">Análise</div>
+        <p class="body">Cruzamento de dados complexos em tempo real.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ S4: IA vs AGENTE (3) ══ -->
+<div class="slide" data-i="3">
+  <div class="bg-orb" style="width:500px;height:500px;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(26,86,255,.03)"></div>
+  <div class="si">
+    <div class="pre gold">Parte 1 · Fundamentos</div>
+    <h2 class="h1" style="margin-bottom:clamp(32px, 6vh, 64px)">IA Generativa vs <em>Agente de IA</em></h2>
+    <div class="g2 grow" style="gap:clamp(24px, 5vw, 60px)">
+      <div style="text-align:center; display:flex; flex-direction:column; justify-content:center; align-items:center">
+        <i data-lucide="message-square" style="width:48px;height:48px;color:var(--tx5);margin-bottom:16px"></i>
+        <div class="li-title" style="font-size:1.5em">IA Generativa</div>
+        <p class="body"><strong>"O Oráculo"</strong><br>Você pergunta, ela responde.<br>Requer humano no controle constante.</p>
+      </div>
+      <div style="text-align:center; display:flex; flex-direction:column; justify-content:center; align-items:center; position:relative">
+        <div style="position:absolute;left:calc(-1 * clamp(16px, 3vw, 30px));top:50%;transform:translateY(-50%);font-size:24px;color:var(--tx3)">→</div>
+        <i data-lucide="bot" style="width:48px;height:48px;color:var(--blue);margin-bottom:16px"></i>
+        <div class="li-title" style="font-size:1.5em; color:var(--blue)">Agente de IA</div>
+        <p class="body"><strong>"O Trabalhador"</strong><br>Você dá um objetivo, ele executa.<br>Autonomia para usar ferramentas.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ S5: ANATOMIA (4) ══ -->
+<div class="slide" data-i="4">
+  <div class="si">
+    <div class="pre gold">Parte 1 · Fundamentos</div>
+    <h2 class="h1" style="margin-bottom:clamp(20px, 4vh, 40px)">Anatomia de um <em>Agente</em></h2>
+    <div class="grow" style="background:var(--s1);border-radius:24px;border:1px solid var(--ln);padding:clamp(20px, 3vw, 40px); overflow:hidden">
+      <svg viewBox="0 0 800 400" style="width:100%;height:auto;max-height:100%">
+        <!-- Cérebro -->
+        <circle cx="400" cy="200" r="70" fill="var(--bluep)" stroke="var(--blue)" stroke-width="3" />
+        <text x="400" y="208" text-anchor="middle" font-weight="800" font-size="20" fill="var(--blue)">Cérebro (LLM)</text>
+        
+        <!-- Connecting Lines (drawn after Cérebro but before outer circles) -->
+        <path d="M340,164 L200,80" stroke="var(--blue)" stroke-width="2.5" opacity="0.4" fill="none" />
+        <path d="M460,164 L600,80" stroke="var(--blue)" stroke-width="2.5" opacity="0.4" fill="none" />
+        <path d="M340,236 L200,320" stroke="var(--blue)" stroke-width="2.5" opacity="0.4" fill="none" />
+        <path d="M460,236 L600,320" stroke="var(--blue)" stroke-width="2.5" opacity="0.4" fill="none" />
+
+        <!-- Outer Circles -->
+        <circle cx="200" cy="80" r="50" fill="var(--s2)" stroke="var(--ln2)" stroke-width="2"/>
+        <text x="200" y="85" text-anchor="middle" font-weight="700" font-size="16">Ferramentas</text>
+        
+        <circle cx="600" cy="80" r="50" fill="var(--s2)" stroke="var(--ln2)" stroke-width="2"/>
+        <text x="600" y="85" text-anchor="middle" font-weight="700" font-size="16">Memória</text>
+        
+        <circle cx="200" cy="320" r="50" fill="var(--s2)" stroke="var(--ln2)" stroke-width="2"/>
+        <text x="200" y="325" text-anchor="middle" font-weight="700" font-size="16">Planejamento</text>
+        
+        <circle cx="600" cy="320" r="50" fill="var(--s2)" stroke="var(--ln2)" stroke-width="2"/>
+        <text x="600" y="325" text-anchor="middle" font-weight="700" font-size="16">Ação</text>
+      </svg>
+    </div>
+  </div>
+</div>
+
+<!-- ══ S6: ESPECTRO (5) ══ -->
+<div class="slide" data-i="5">
+  <div class="si">
+    <div class="pre gold">Parte 1 · Fundamentos</div>
+    <h2 class="h1" style="margin-bottom:clamp(24px, 5vh, 48px)">O Espectro de <em>Autonomia</em></h2>
+    <div class="grow" style="gap:clamp(32px, 6vh, 64px)">
+      <div style="position:relative; height:80px">
+        <div style="position:absolute; top:50%; left:0; right:0; height:2px; background:var(--ln); transform:translateY(-50%)"></div>
+        <div style="display:flex; justify-content:space-between; position:relative; z-index:2">
+          <div style="text-align:center">
+            <div style="width:20px;height:20px;background:var(--tx3);border-radius:50%;margin:0 auto 8px;border:3px solid #fff"></div>
+            <div style="font-weight:700; font-size:13px">Chatbot</div>
+          </div>
+          <div style="text-align:center">
+            <div style="width:20px;height:20px;background:var(--blue);border-radius:50%;margin:0 auto 8px;border:3px solid #fff"></div>
+            <div style="font-weight:700; font-size:13px">Copiloto</div>
+          </div>
+          <div style="text-align:center">
+            <div style="width:20px;height:20px;background:var(--blue);border-radius:50%;margin:0 auto 8px;border:3px solid #fff"></div>
+            <div style="font-weight:700; font-size:13px">Agente</div>
+          </div>
+          <div style="text-align:center">
+            <div style="width:20px;height:20px;background:#10B981;border-radius:50%;margin:0 auto 8px;border:3px solid #fff"></div>
+            <div style="font-weight:700; font-size:13px">Multi-Agente</div>
+          </div>
+        </div>
+      </div>
+      <div class="g4">
+        <div class="card" style="padding:16px"><p class="body">GPT-4, Claude. Responde e informa.</p></div>
+        <div class="card" style="padding:16px"><p class="body">Cursor, v0. Auxilia a criar sob demanda.</p></div>
+        <div class="card" style="padding:16px"><p class="body">Devin, Lindy. Executa tarefas fim-a-fim.</p></div>
+        <div class="card" style="padding:16px"><p class="body">CrewAI. Orquestra times especialistas.</p></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ S7: 4 FORMAS (6) ══ -->
+<div class="slide" data-i="6">
+  <div class="si">
+    <div class="pre gold">Parte 2 · Construção</div>
+    <h2 class="h1" style="margin-bottom:clamp(20px, 4vh, 40px)">As 4 formas de <em>construir</em></h2>
+    <div class="grow" style="position:relative">
+      <div style="position:absolute; top:50%; left:10%; right:10%; height:2px; background:linear-gradient(90deg, var(--ln), var(--blue), var(--ln)); transform:translateY(-50%); z-index:0; opacity:0.3"></div>
+      <div class="g4" style="position:relative; z-index:1">
+        <div class="card" style="text-align:center">
+          <div class="pre">Nível 1</div>
+          <div class="li-title">No-Code</div>
+          <p class="body">GPTs, Lindy. Rápido e simples.</p>
+        </div>
+        <div class="card" style="text-align:center">
+          <div class="pre">Nível 2</div>
+          <div class="li-title">Low-Code</div>
+          <p class="body">n8n, Make. Fluxos visuais potentes.</p>
+        </div>
+        <div class="card" style="text-align:center; border-color:var(--blueb); background:var(--bluep)">
+          <div class="pre" style="color:var(--blue)">Nível 3</div>
+          <div class="li-title" style="color:var(--blue)">Code</div>
+          <p class="body">CrewAI, LangGraph. Controle total.</p>
+        </div>
+        <div class="card" style="text-align:center">
+          <div class="pre">Nível 4</div>
+          <div class="li-title">Agentic IDEs</div>
+          <p class="body">Cursor, Bolt. Vibe Coding.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ S8: NO-CODE (7) ══ -->
+<div class="slide" data-i="7">
+  <div class="si">
+    <div class="pre gold">Parte 2 · Nível 1</div>
+    <h2 class="h1" style="margin-bottom:clamp(20px, 4vh, 32px)">No-Code: <em>Velocidade Máxima</em></h2>
+    <div class="g2 grow">
+      <div style="display:flex; flex-direction:column; justify-content:center; gap:24px">
+        <p class="lede">A democratização da automação. Qualquer pessoa de negócio agora é um criador.</p>
+        <div class="card"><p class="body"><strong>Exemplo:</strong> Um GPT que qualifica leads do LinkedIn e envia para o Slack automaticamente.</p></div>
+      </div>
+      <div class="card" style="text-align:center; display:flex; flex-direction:column; justify-content:center; align-items:center">
+        <i data-lucide="rocket" class="icon" style="width:48px;height:48px;margin-bottom:16px"></i>
+        <div class="li-title">Time-to-Market</div>
+        <p class="body">Minutos para validar uma ideia ou processo.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ S9: LOW-CODE (8) ══ -->
+<div class="slide" data-i="8">
+  <div class="si">
+    <div class="pre gold">Parte 2 · Nível 2</div>
+    <h2 class="h1" style="margin-bottom:clamp(20px, 4vh, 32px)">Low-Code: <em>O Ponto Doce</em></h2>
+    <div class="g2 grow">
+      <div style="background:var(--s1); border:1px solid var(--ln); border-radius:16px; padding:24px; display:flex; align-items:center; justify-content:center">
+        <div style="text-align:center">
+          <i data-lucide="network" style="width:48px;height:48px;color:var(--blue);margin-bottom:16px"></i>
+          <div class="badge badge-blue">n8n / Make</div>
+        </div>
+      </div>
+      <div style="display:flex; flex-direction:column; justify-content:center; gap:20px">
+        <p class="lede">Lógica visual complexa. Perfeito para integrar o "espaguete" de ferramentas da empresa.</p>
+        <div class="list">
+          <div class="li">Integração com 400+ apps.</div>
+          <div class="li">Nós de IA nativos (LangChain).</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ S10: CODE (9) ══ -->
+<div class="slide" data-i="9">
+  <div class="si">
+    <div class="pre gold">Parte 2 · Nível 3</div>
+    <h2 class="h1" style="margin-bottom:clamp(20px, 4vh, 32px)">Code: <em>Escala Enterprise</em></h2>
+    <div class="g2 grow">
+      <div class="code" style="font-size:clamp(10px, 0.8vw, 12px)">
+        <span class="ck">from</span> crewai <span class="ck">import</span> Agent<br><br>
+        researcher = Agent(<br>
+        &nbsp;&nbsp;role=<span class="cs">'Researcher'</span>,<br>
+        &nbsp;&nbsp;goal=<span class="cs">'Mapear mercado'</span>,<br>
+        &nbsp;&nbsp;tools=[search_tool]<br>
+        )
+      </div>
+      <div style="display:flex; flex-direction:column; justify-content:center; gap:20px">
+        <p class="lede">Onde o software ganha vida própria. Frameworks robustos para problemas complexos.</p>
+        <div class="card"><p class="body"><strong>Vantagem:</strong> Versionamento, testes e deploy escalável.</p></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ S11: AGENTIC IDEs (10) ══ -->
+<div class="slide" data-i="10">
+  <div class="si">
+    <div class="pre gold">Parte 2 · Nível 4</div>
+    <h2 class="h1" style="margin-bottom:clamp(20px, 4vh, 32px)">Agentic IDEs: <em>Vibe Coding</em></h2>
+    <div class="g2 grow">
+      <div style="display:flex; flex-direction:column; justify-content:center; gap:24px">
+        <p class="lede">A IA escrevendo o software inteiro. Você vira o Arquiteto e Revisor.</p>
+        <div style="display:flex; gap:12px">
+          <span class="badge badge-blue">Cursor</span>
+          <span class="badge badge-blue">Lovable</span>
+          <span class="badge badge-blue">Bolt</span>
+        </div>
+      </div>
+      <div style="background:var(--tx); border-radius:16px; padding:24px; color:#fff; font-family:var(--mn); font-size:12px; display:flex; flex-direction:column; justify-content:center">
+        <div style="color:var(--tx3)">// User Request</div>
+        <div style="color:#10B981">"Build a full SaaS dashboard."</div>
+        <div style="margin-top:16px; color:var(--tx3)">// Agent Work</div>
+        <div style="color:var(--blue)">> Planning structure...<br>> Generating React code...<br>> Fixing 2 bugs found...<br>> Ready!</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ S12: POR QUE MÚLTIPLOS (11) ══ -->
+<div class="slide" data-i="11">
+  <div class="si">
+    <div class="pre gold">Parte 3 · Orquestração</div>
+    <h2 class="h1" style="margin-bottom:clamp(24px, 5vh, 48px)">Por que <em>Múltiplos Agentes?</em></h2>
+    <div class="g2 grow" style="align-items:center">
+      <div style="text-align:center">
+        <i data-lucide="user" class="icon" style="width:48px;height:48px;margin:0 auto 12px"></i>
+        <div class="li-title">Generalista</div>
+        <p class="body">Tenta fazer tudo sozinho.<br>Perde o foco e alucina.</p>
+      </div>
+      <div style="text-align:center; position:relative">
+        <div style="position:absolute; left:calc(-20% - 10px); top:50%; transform:translateY(-50%); font-size:24px; color:var(--tx3)">→</div>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; width:100px; margin:0 auto">
+          <i data-lucide="search" style="width:24px;height:24px;color:var(--tx5)"></i>
+          <i data-lucide="pen-tool" style="width:24px;height:24px;color:var(--tx5)"></i>
+          <i data-lucide="microscope" style="width:24px;height:24px;color:var(--tx5)"></i>
+          <i data-lucide="rocket" style="width:24px;height:24px;color:var(--tx5)"></i>
+        </div>
+        <div class="li-title" style="margin-top:16px">Time Especialista</div>
+        <p class="body">Cada um com sua missão.<br>Precisão e escala.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ S13: PADRÕES (12) ══ -->
+<div class="slide" data-i="12">
+  <div class="si">
+    <div class="pre gold">Parte 3 · Orquestração</div>
+    <h2 class="h1" style="margin-bottom:clamp(20px, 4vh, 40px)">Padrões de <em>Orquestração</em></h2>
+    <div class="grow">
+      <div class="cg cg-2x2">
+        <div class="card">
+          <i data-lucide="link" class="icon"></i>
+          <div class="li-title">Sequential</div>
+          <p class="body">A -> B -> C.<br>Linha de produção.</p>
+        </div>
+        <div class="card" style="border-color:var(--blueb)">
+          <i data-lucide="crown" class="icon"></i>
+          <div class="li-title" style="color:var(--blue)">Supervisor</div>
+          <p class="body">O chefe gerencia.<br>Distribui tarefas.</p>
+        </div>
+        <div class="card">
+          <i data-lucide="git-branch" class="icon"></i>
+          <div class="li-title">Hierarchical</div>
+          <p class="body">Gerentes e sub-times.<br>Organização complexa.</p>
+        </div>
+        <div class="card">
+          <i data-lucide="component" class="icon"></i>
+          <div class="li-title">Swarm</div>
+          <p class="body">Colaboração livre.<br>Decentralizado.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ S14: PRÁTICA (13) ══ -->
+<div class="slide" data-i="13">
+  <div class="si">
+    <div class="pre gold">Parte 3 · Prática</div>
+    <h2 class="h1" style="margin-bottom:clamp(20px, 4vh, 40px)">Times na <em>Prática</em></h2>
+    <div class="grow">
+      <div class="cg cg-stack">
+        <div class="card" style="padding:16px; display:flex; align-items:center; gap:20px">
+          <div class="badge badge-blue" style="width:100px; flex-shrink:0">Research Crew</div>
+          <div class="list" style="display:flex; flex-direction:row; gap:16px; flex:1">
+            <div class="body"><i data-lucide="search" style="width:14px;height:14px;display:inline-block;vertical-align:middle;margin-right:4px"></i> <strong>Researcher</strong></div>
+            <div class="body"><i data-lucide="pen-tool" style="width:14px;height:14px;display:inline-block;vertical-align:middle;margin-right:4px"></i> <strong>Writer</strong></div>
+            <div class="body"><i data-lucide="check-circle" style="width:14px;height:14px;display:inline-block;vertical-align:middle;margin-right:4px"></i> <strong>Editor</strong></div>
+          </div>
+        </div>
+        <div class="card" style="padding:16px; display:flex; align-items:center; gap:20px">
+          <div class="badge badge-blue" style="width:100px; flex-shrink:0">Dev Crew</div>
+          <div class="list" style="display:flex; flex-direction:row; gap:16px; flex:1">
+            <div class="body"><i data-lucide="layout" style="width:14px;height:14px;display:inline-block;vertical-align:middle;margin-right:4px"></i> <strong>Architect</strong></div>
+            <div class="body"><i data-lucide="code-2" style="width:14px;height:14px;display:inline-block;vertical-align:middle;margin-right:4px"></i> <strong>Coder</strong></div>
+            <div class="body"><i data-lucide="test-tube" style="width:14px;height:14px;display:inline-block;vertical-align:middle;margin-right:4px"></i> <strong>QA</strong></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ S15: ANTES MCP (14) ══ -->
+<div class="slide" data-i="14">
+  <div class="si">
+    <div class="pre gold">Parte 4 · Conectividade</div>
+    <h2 class="h1" style="margin-bottom:32px">O Problema <em>Antes do MCP</em></h2>
+    <div class="grow" style="display:flex; flex-direction:column; align-items:center; gap:24px; width:100%">
+      <div style="background:var(--s1); border:1px solid var(--ln); border-radius:24px; padding:clamp(20px, 4vw, 40px); width:100%; max-width:800px; display:flex; align-items:center; justify-content:center">
+        <svg viewBox="0 0 700 300" style="width:100%; height:auto; font-family:var(--bd)">
+          <!-- Tangled Spaghetti Connecting Lines -->
+          <path d="M350,50 L130,140" stroke="var(--blue)" stroke-width="2.5" opacity="0.5" fill="none" />
+          <path d="M350,50 Q250,150 190,240" stroke="var(--blue)" stroke-width="2.5" opacity="0.5" stroke-dasharray="6,4" fill="none" />
+          <path d="M350,50 Q450,150 510,240" stroke="var(--blue)" stroke-width="2.5" opacity="0.5" stroke-dasharray="6,4" fill="none" />
+          <path d="M350,50 L570,140" stroke="var(--blue)" stroke-width="2.5" opacity="0.5" fill="none" />
+          <path d="M130,140 L190,240" stroke="var(--ln2)" stroke-width="2" fill="none" />
+          <path d="M130,140 Q350,100 570,140" stroke="var(--gold)" stroke-width="2" opacity="0.6" stroke-dasharray="4,4" fill="none" />
+          <path d="M130,140 Q320,220 510,240" stroke="#10B981" stroke-width="2" opacity="0.6" fill="none" />
+          <path d="M190,240 L510,240" stroke="var(--ln2)" stroke-width="2" stroke-dasharray="4,4" fill="none" />
+          <path d="M190,240 Q380,220 570,140" stroke="var(--gold)" stroke-width="2" opacity="0.6" fill="none" />
+          <path d="M510,240 L570,140" stroke="var(--ln2)" stroke-width="2" fill="none" />
+
+          <!-- Node 1: AI Agent (Top Center) -->
+          <rect x="275" y="26" width="150" height="48" rx="12" fill="#EFF6FF" stroke="var(--blue)" stroke-width="2" />
+          <text x="350" y="55" font-weight="700" font-size="15" fill="var(--blue)" text-anchor="middle">AI Agent</text>
+
+          <!-- Node 2: CRM / Vendas (Left Middle) -->
+          <rect x="55" y="116" width="150" height="48" rx="12" fill="var(--s2)" stroke="var(--ln2)" stroke-width="1.5" />
+          <text x="130" y="145" font-weight="600" font-size="14" fill="var(--tx7)" text-anchor="middle">CRM / Vendas</text>
+
+          <!-- Node 3: Banco de Dados (Left Bottom) -->
+          <rect x="115" y="216" width="150" height="48" rx="12" fill="var(--s2)" stroke="var(--ln2)" stroke-width="1.5" />
+          <text x="190" y="245" font-weight="600" font-size="14" fill="var(--tx7)" text-anchor="middle">Banco de Dados</text>
+
+          <!-- Node 4: Comunicação (Right Bottom) -->
+          <rect x="435" y="216" width="150" height="48" rx="12" fill="var(--s2)" stroke="var(--ln2)" stroke-width="1.5" />
+          <text x="510" y="245" font-weight="600" font-size="14" fill="var(--tx7)" text-anchor="middle">Comunicação</text>
+
+          <!-- Node 5: Arquivos / Docs (Right Middle) -->
+          <rect x="495" y="116" width="150" height="48" rx="12" fill="var(--s2)" stroke="var(--ln2)" stroke-width="1.5" />
+          <text x="570" y="145" font-weight="600" font-size="14" fill="var(--tx7)" text-anchor="middle">Arquivos / Docs</text>
+        </svg>
+      </div>
+      <div class="li-title" style="font-size:1.4em">Integrações "Spaghetti"</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ S16: MCP (15) ══ -->
+<div class="slide" data-i="15">
+  <div class="si">
+    <div class="pre gold">Parte 4 · Conectividade</div>
+    <h2 class="h1" style="margin-bottom:32px">MCP: O <em>USB-C</em> dos Agentes</h2>
+    <div class="grow" style="background:var(--s2); border:1px solid var(--ln); border-radius:24px; padding:clamp(20px, 4vw, 40px); text-align:center">
+      <h3 style="color:var(--blue); font-size:1.4em; margin-bottom:16px">Model Context Protocol</h3>
+      <div style="display:flex; justify-content:center; align-items:center; gap:clamp(16px, 4vw, 40px); margin-bottom:16px">
+        <div class="card" style="width:140px">IA Agent</div>
+        <i data-lucide="plug-zap" class="icon" style="width:32px;height:32px"></i>
+        <div class="card" style="width:140px">Real World</div>
+      </div>
+      <p class="lede" style="margin:0 auto">Um padrão aberto para conectar qualquer cérebro de IA a qualquer ferramenta ou dado.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ══ S17: ECOSSISTEMA MCP (16) ══ -->
+<div class="slide" data-i="16">
+  <div class="si">
+    <div class="pre gold">Parte 4 · Conectividade</div>
+    <h2 class="h1" style="margin-bottom:32px">O Ecossistema <em>MCP</em></h2>
+    <div class="cg cg-square grow">
+      <div class="card"><i data-lucide="folder" class="icon" style="margin-bottom:8px"></i><div class="li-title">FileSystem</div></div>
+      <div class="card"><i data-lucide="search" class="icon" style="margin-bottom:8px"></i><div class="li-title">Search</div></div>
+      <div class="card"><i data-lucide="database" class="icon" style="margin-bottom:8px"></i><div class="li-title">Databases</div></div>
+      <div class="card"><i data-lucide="mail" class="icon" style="margin-bottom:8px"></i><div class="li-title">Gmail</div></div>
+      <div class="card"><i data-lucide="message-circle" class="icon" style="margin-bottom:8px"></i><div class="li-title">Slack</div></div>
+      <div class="card"><i data-lucide="tool" class="icon" style="margin-bottom:8px"></i><div class="li-title">Custom</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ S18: META-AGENTES (17) ══ -->
+<div class="slide" data-i="17">
+  <div class="si">
+    <div class="pre gold">Parte 5 · Futuro</div>
+    <h2 class="h1" style="margin-bottom:32px">Meta-Agentes: <em>IA que cria IA</em></h2>
+    <div class="g2 grow">
+      <div style="display:flex; flex-direction:column; justify-content:center; gap:20px">
+        <p class="lede">A IA cujo objetivo é <strong>construir o time de agentes ideal</strong> para você em tempo real.</p>
+        <div class="badge badge-blue" style="width:fit-content">The Architect Mode</div>
+      </div>
+      <div class="card blue-card" style="display:flex; flex-direction:column; justify-content:center">
+        <div class="list" style="gap:12px">
+          <div class="body">1. Define os sub-agentes necessários.</div>
+          <div class="body">2. Refina os prompts de cada um.</div>
+          <div class="body">3. Orquestra a execução final.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ S19: A2A (18) ══ -->
+<div class="slide" data-i="18">
+  <div class="si">
+    <div class="pre gold">Parte 5 · Futuro</div>
+    <h2 class="h1" style="margin-bottom:32px">A2A: <em>Agent-to-Agent</em></h2>
+    <div class="grow">
+      <div class="cg cg-stack">
+        <div class="card" style="display:flex; align-items:center; gap:20px">
+          <i data-lucide="users" class="icon" style="margin-bottom:0"></i>
+          <div style="flex:1">
+            <div class="li-title">Negociação Direta</div>
+            <p class="body">Seu agente fala com o agente da companhia aérea sem telas ou botões.</p>
+          </div>
+        </div>
+        <div class="card" style="display:flex; align-items:center; gap:20px">
+          <i data-lucide="credit-card" class="icon" style="margin-bottom:0"></i>
+          <div style="flex:1">
+            <div class="li-title">Autonomia Financeira</div>
+            <p class="body">Agentes com "carteira" para contratar outros serviços instantaneamente.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ S20: POR ONDE COMEÇAR (19) ══ -->
+<div class="slide" data-i="19">
+  <div class="si">
+    <div class="pre gold">Conclusão</div>
+    <h2 class="h1" style="margin-bottom:clamp(32px, 6vh, 64px)">Por onde <em>começar?</em></h2>
+    <div class="grow">
+      <div class="cg cg-2x2">
+        <div class="card" style="border-top:4px solid var(--tx3); text-align:center">
+          <i data-lucide="help-circle" class="icon" style="margin:0 auto 8px"></i>
+          <div class="li-title">Curioso</div>
+          <p class="body">Use GPTs e No-Code.</p>
+        </div>
+        <div class="card" style="border-top:4px solid var(--blue); text-align:center">
+          <i data-lucide="cog" class="icon" style="margin:0 auto 8px"></i>
+          <div class="li-title" style="color:var(--blue)">Operações</div>
+          <p class="body">Domine o n8n.</p>
+        </div>
+        <div class="card" style="border-top:4px solid var(--blue); text-align:center">
+          <i data-lucide="terminal" class="icon" style="margin:0 auto 8px"></i>
+          <div class="li-title" style="color:var(--blue)">Developer</div>
+          <p class="body">LangGraph e Cursor.</p>
+        </div>
+        <div class="card" style="border-top:4px solid #10B981; text-align:center">
+          <i data-lucide="user-check" class="icon" style="margin:0 auto 8px"></i>
+          <div class="li-title">Decisor</div>
+          <p class="body">Mapeie processos.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ S21: TAKE-AWAYS (20) ══ -->
+<div class="slide" data-i="20">
+  <div class="si">
+    <div class="pre gold">Conclusão</div>
+    <h2 class="h1" style="margin-bottom:clamp(24px, 4vh, 40px)">Principais <em>Take-aways</em></h2>
+    <div class="grow" style="gap:12px; justify-content:flex-start">
+      <div class="card" style="padding:16px; display:flex; align-items:center; gap:20px">
+        <i data-lucide="check-circle-2" class="icon" style="color:var(--blue); margin-bottom:0"></i>
+        <div class="body"><strong>Agente ≠ Chat:</strong> É sobre execução de objetivos.</div>
+      </div>
+      <div class="card" style="padding:16px; display:flex; align-items:center; gap:20px">
+        <i data-lucide="users-2" class="icon" style="color:var(--blue); margin-bottom:0"></i>
+        <div class="body"><strong>Especialização:</strong> Times vencem generalistas.</div>
+      </div>
+      <div class="card" style="padding:16px; display:flex; align-items:center; gap:20px">
+        <i data-lucide="zap" class="icon" style="color:var(--blue); margin-bottom:0"></i>
+        <div class="body"><strong>Padrão MCP:</strong> A conectividade universal chegou.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ S22: CALL 1:1 (21) ══ -->
+<div class="slide" data-i="21">
+  <div class="bg-orb" style="width:600px;height:600px;bottom:-200px;left:-100px;background:rgba(26,86,255,.03)"></div>
+  <div class="si">
+    <div class="pre gold">Mentoria Individual</div>
+    <h2 class="h1" style="margin-bottom:clamp(24px, 5vh, 48px); max-width:900px">Call 1:1 com <em>Rafael</em></h2>
+    <p class="lede" style="margin-bottom:clamp(20px, 4vh, 32px)">Destrave sua implementação de Agentes de IA em uma sessão estratégica focada no seu negócio.</p>
+    
+    <div class="g3 grow" style="gap:clamp(12px, 2vw, 24px)">
+      <div class="card">
+        <i data-lucide="target" class="icon" style="margin-bottom:12px"></i>
+        <div class="li-title">Mapeamento</div>
+        <p class="body">Identificação de gargalos e oportunidades reais de automação com Agentes.</p>
+      </div>
+      <div class="card">
+        <i data-lucide="layers" class="icon" style="margin-bottom:12px"></i>
+        <div class="li-title">Arquitetura</div>
+        <p class="body">Definição da melhor stack técnica e fluxos (n8n, CrewAI, LangGraph) para o seu caso.</p>
+      </div>
+      <div class="card">
+        <i data-lucide="calendar" class="icon" style="margin-bottom:12px"></i>
+        <div class="li-title">Plano de Ação</div>
+        <p class="body">Cronograma claro de implementação para sair do hype e ir para o código.</p>
+      </div>
+    </div>
+    
+    <div style="display:flex; justify-content:center; margin-top:20px">
+      <div style="background:#fff; padding:16px; border-radius:12px; border:1px solid var(--ln); box-shadow:0 10px 30px rgba(0,0,0,.05); display:flex; align-items:center; gap:20px">
+         <img src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https://calendly.com" width="120" height="120" style="border-radius:6px">
+         <div>
+           <div style="font-weight:700; color:var(--tx)">Agende agora</div>
+           <div style="font-size:12px; color:var(--tx5)">Sessão estratégica individual</div>
+         </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ S23: PLANO FUNDADOR (22) ══ -->
+<div class="slide" data-i="22">
+  <div class="bg-orb" style="width:600px;height:600px;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(26,86,255,.06)"></div>
+  <div class="si">
+    <div style="display:flex; height:100%">
+      <div style="flex:1; display:flex; flex-direction:column; justify-content:center; padding-right:4vw">
+        <div class="pre gold">Oferta Exclusiva</div>
+        <h2 class="h1" style="color:var(--blue)">Plano Fundador</h2>
+        <p class="lede" style="margin:24px 0">Acesso vitalício à Guilda. Escola de negócios com foco total em IA.</p>
+        <div class="badge badge-gold" style="font-size:14px; padding:8px 16px">Vagas Limitadas: 50</div>
+      </div>
+      <div style="flex:.6; display:flex; flex-direction:column; justify-content:center; align-items:center">
+        <div style="background:#fff; padding:20px; border-radius:16px; border:1px solid var(--ln); box-shadow:0 10px 30px rgba(0,0,0,.05)">
+           <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https://lp-guilda.netlify.app" width="180" height="180" style="border-radius:8px">
+           <div style="text-align:center; margin-top:12px; font-size:12px; color:var(--tx5)">lp-guilda.netlify.app</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ S24: PERGUNTAS (23) ══ -->
+<div class="slide" data-i="23">
+  <div class="si" style="align-items:center; justify-content:center; text-align:center">
+    <div class="pre gold">Encerramento</div>
+    <h2 class="h1" style="font-size:clamp(48px, 6vw, 96px); margin-bottom:24px">Perguntas?</h2>
+    <p class="lede" style="margin:0 auto">Vamos discutir como os agentes podem transformar sua realidade hoje.</p>
+  </div>
+</div>
+
+</div>
+
+<script>
+  let currentSlide = 0;
+  const slides = document.querySelectorAll('.slide');
+  const pgbar = document.getElementById('pgbar');
+  const totalSlides = slides.length;
+  
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+  const pageCounter = document.getElementById('pageCounter');
+
+  function updateSlide() {
+    slides.forEach((slide, index) => {
+      slide.classList.remove('active', 'out');
+      if (index === currentSlide) {
+        slide.classList.add('active');
+      } else if (index < currentSlide) {
+        slide.classList.add('out');
+      }
+    });
+    
+    if(pgbar) {
+      const progress = ((currentSlide + 1) / totalSlides) * 100;
+      pgbar.style.width = `${progress}%`;
+    }
+    
+    if (prevBtn) prevBtn.disabled = currentSlide === 0;
+    if (nextBtn) nextBtn.disabled = currentSlide === totalSlides - 1;
+    
+    if (pageCounter) {
+      pageCounter.textContent = (currentSlide + 1) + ' / ' + totalSlides;
+    }
+  }
+
+  prevBtn.addEventListener('click', () => {
+    if (currentSlide > 0) {
+      currentSlide--;
+      updateSlide();
+    }
+  });
+  
+  nextBtn.addEventListener('click', () => {
+    if (currentSlide < totalSlides - 1) {
+      currentSlide++;
+      updateSlide();
+    }
+  });
+
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' || e.key === ' ') {
+      if (currentSlide < totalSlides - 1) {
+        currentSlide++;
+        updateSlide();
+      }
+    } else if (e.key === 'ArrowLeft') {
+      if (currentSlide > 0) {
+        currentSlide--;
+        updateSlide();
+      }
+    }
+  });
+
+  updateSlide();
+  lucide.createIcons();
+</script>
+</body>
+</html>
