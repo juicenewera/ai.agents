@@ -510,139 +510,97 @@
 
     <!-- Conteúdo dos Slides -->
     <main id="main-content">
-
         <!-- SLIDE 1: CAPA -->
         <section class="slide active" data-slide="1">
-            <div class="hero-slide">
-                <div class="slide-badge">
-                    <i data-lucide="sparkles" size="18"></i>
-                    <span>PRD & Estrutura de Aula Oficial</span>
+            <div class="slide-content-grid" style="grid-template-columns: 1.1fr 0.9fr; align-items: center; gap: 4rem; height: 100%;">
+                <div style="display: flex; flex-direction: column; justify-content: center;">
+                    <div class="slide-topic-meta">
+                        <i data-lucide="sparkles" size="18" style="color: var(--text-accent);"></i>
+                        <span>Apresentação Oficial • Aula Prática</span>
+                    </div>
+                    <h1 class="slide-title" style="font-size: 3.8rem; margin-bottom: 1.5rem; line-height: 1.15;">Zero-Human Company</h1>
+                    <p class="slide-subtitle" style="font-size: 1.4rem; margin-bottom: 2rem; line-height: 1.4; color: var(--text-muted);">Construindo sua empresa autônoma com Paperclip AI.</p>
+                    <div style="font-size: 1.05rem; color: var(--text-main); line-height: 1.6; background: var(--bg-secondary); padding: 1.25rem; border-radius: 8px;">
+                        Aprenda a orquestrar, instalar e gerenciar uma equipe inteira de agentes de inteligência artificial autônomos sem necessidade de supervisão humana constante.
+                    </div>
                 </div>
-                <h1 class="slide-title">Paperclip AI: Monte Empresas Sem Humanos</h1>
-                <p class="slide-subtitle">Do zero à orquestração de uma equipe de IA sem intervenção humana contínua.</p>
-                
-                <div class="hero-features">
-                    <div class="hero-feature-card">
-                        <i data-lucide="target" size="32" style="color: var(--accent-primary); flex-shrink: 0"></i>
-                        <div>
-                            <div style="font-weight: 700; font-size: 1.2rem; color: var(--text-main); margin-bottom: 0.4rem">Visão Geral & Objetivo</div>
-                            <div style="font-size: 0.95rem; color: var(--text-muted); line-height: 1.5">Capacitar os participantes a entender, instalar e orquestrar sua própria "empresa de IA" utilizando a ferramenta open source Paperclip, focando em exemplos reais e sem intervenção humana contínua.</div>
-                        </div>
-                    </div>
-                    <div class="hero-feature-card">
-                        <i data-lucide="users" size="32" style="color: var(--accent-tertiary); flex-shrink: 0"></i>
-                        <div>
-                            <div style="font-weight: 700; font-size: 1.2rem; color: var(--text-main); margin-bottom: 0.4rem">Público-Alvo Principal</div>
-                            <div style="font-size: 0.95rem; color: var(--text-muted); line-height: 1.5">Desenvolvedores, empreendedores e entusiastas de automação que precisam escalar produtividade e gerenciar múltiplos agentes autônomos simultaneamente.</div>
-                        </div>
-                    </div>
+                <div style="display: flex; justify-content: center; align-items: center;">
+                    <img src="assets/office_ai.png" alt="Escritório do Futuro" style="width: 100%; max-width: 500px; border-radius: 12px; box-shadow: 0 20px 40px rgba(0,0,0,0.06); object-fit: cover;">
                 </div>
             </div>
         </section>
 
-        <!-- SLIDE 2: O CONCEITO DE ZERO-HUMAN COMPANY -->
+        <!-- SLIDE 2: A MUDANÇA DE PARADIGMA -->
         <section class="slide" data-slide="2">
             <div class="slide-header">
                 <div class="slide-topic-meta">
-                    <i data-lucide="book-open" size="16"></i>
-                    <span>Tópico 1: Visão Geral do Produto • 5 min</span>
+                    <i data-lucide="shuffle" size="16" style="color: var(--text-accent);"></i>
+                    <span>Módulo 1: A Visão e os Conceitos</span>
                 </div>
-                <h2 class="slide-title">Construindo uma "Zero-Human Company"</h2>
-                <p class="slide-subtitle">O conceito fundacional de empresas geridas de forma 100% autônoma por IA.</p>
+                <h2 class="slide-title">A Mudança de Paradigma</h2>
+                <p class="slide-subtitle">A diferença fundamental entre trabalhar com um "funcionário" isolado e criar uma "empresa" integrada.</p>
             </div>
             
-            <div class="slide-content-grid">
-                <div class="card card-glow">
+            <div class="slide-content-grid" style="grid-template-columns: 1fr 1fr; gap: 3rem;">
+                <div class="card" style="background: #F8FAFC;">
                     <div class="card-section-title">
-                        <i data-lucide="building-2"></i>
-                        <span>O Conceito Fundacional</span>
+                        <i data-lucide="user-x" style="color: #EF4444;"></i>
+                        <span style="color: var(--text-main);">O Funcionário (Chatbot Comum)</span>
                     </div>
-
-                    <div class="concept-box">
-                        <h4><i data-lucide="cpu" size="18"></i> Mais do que Automação</h4>
-                        <p>O Paperclip não é um chatbot simples, nem um construtor de integrações fixas como o Zapier. Trata-se de um <strong>framework de orquestração autônomo</strong> projetado para construir empresas geridas inteiramente por IA.</p>
-                    </div>
-
-                    <div class="concept-box" style="border-color: rgba(217, 70, 239, 0.3);">
-                        <h4 style="color: var(--accent-tertiary)"><i data-lucide="briefcase" size="18"></i> A Metáfora Corporativa</h4>
-                        <p>Se as IAs convencionais (como Claude, GPT ou Gemini) são os <strong>funcionários</strong> de uma empresa, o Paperclip atua como o <strong>escritório inteiro</strong>. Ele provê a infraestrutura física e lógica onde a colaboração acontece.</p>
-                    </div>
-
-                    <div class="step-list">
-                        <div class="step-item">
-                            <div class="step-icon"><i data-lucide="clipboard-list" size="16"></i></div>
-                            <div class="step-content">
-                                <h4>Gestão e Governança Integradas</h4>
-                                <p>A ferramenta centraliza em uma única plataforma: organogramas dinâmicos, orçamentos inteligentes, gestão de tarefas e logs completos de auditoria para acompanhamento.</p>
-                            </div>
-                        </div>
-                    </div>
+                    <p style="color: var(--text-muted); margin-bottom: 1.5rem; font-size: 0.95rem;">Exemplos: ChatGPT, Claude.ai, Gemini. Interface reativa com o usuário.</p>
+                    <ul style="list-style: none; display: flex; flex-direction: column; gap: 1rem; color: var(--text-muted); font-size: 1rem;">
+                        <li style="display: flex; align-items: center; gap: 0.75rem;"><i data-lucide="x" size="18" style="color: #EF4444;"></i> Aba isolada no navegador</li>
+                        <li style="display: flex; align-items: center; gap: 0.75rem;"><i data-lucide="x" size="18" style="color: #EF4444;"></i> Sem persistência ou memória global</li>
+                        <li style="display: flex; align-items: center; gap: 0.75rem;"><i data-lucide="x" size="18" style="color: #EF4444;"></i> Apenas reativo (espera você mandar um prompt)</li>
+                        <li style="display: flex; align-items: center; gap: 0.75rem;"><i data-lucide="x" size="18" style="color: #EF4444;"></i> Exige que você faça o trabalho de orquestração</li>
+                    </ul>
                 </div>
 
-                <div class="example-box">
-                    <div>
-                        <div class="example-header">
-                            <span class="example-badge"><i data-lucide="play-circle" size="16"></i> Estrutura de Coordenação</span>
-                            <h3 class="example-title">O Paradigma de Orquestração</h3>
-                        </div>
-                        <div class="example-body">
-                            <p>Em vez de ficar enviando prompts sequenciais, você define a governança e deixa os agentes colaborarem de maneira coordenada:</p>
-                            
-                            <div class="example-highlight-box">
-                                <div class="example-highlight-title"><i data-lucide="users" size="18"></i> O Escritório de IA:</div>
-                                <div class="example-highlight-content">A camada organizacional garante que cada agente conheça seu escopo, execute suas funções e reporte seu progresso no Kanban comum de forma independente.</div>
-                            </div>
-
-                            <ul>
-                                <li><i data-lucide="check-circle2" size="18"></i> <strong>Organogramas:</strong> Relações hierárquicas claras entre IAs.</li>
-                                <li><i data-lucide="check-circle2" size="18"></i> <strong>Orçamentos:</strong> Controle de gastos de tokens e chamadas.</li>
-                                <li><i data-lucide="check-circle2" size="18"></i> <strong>Logs de Auditoria:</strong> Histórico de pensamento e ações de cada IA.</li>
-                            </ul>
-                        </div>
+                <div class="card" style="background: #EFF6FF; border: 1px solid #DBEAFE !important;">
+                    <div class="card-section-title">
+                        <i data-lucide="building" style="color: var(--text-accent);"></i>
+                        <span style="color: var(--text-main);">A Empresa (Paperclip AI)</span>
                     </div>
-                    <div class="example-footer">
-                        <span>A IA trabalha em equipe, não de forma isolada.</span>
-                        <i data-lucide="workflow" size="20" style="color: var(--accent-primary)"></i>
-                    </div>
+                    <p style="color: var(--text-muted); margin-bottom: 1.5rem; font-size: 0.95rem;">Interface autônoma e colaborativa voltada a objetivos corporativos.</p>
+                    <ul style="list-style: none; display: flex; flex-direction: column; gap: 1rem; color: var(--text-main); font-size: 1rem; font-weight: 500;">
+                        <li style="display: flex; align-items: center; gap: 0.75rem;"><i data-lucide="check" size="18" style="color: #10B981;"></i> Organograma estruturado de IAs</li>
+                        <li style="display: flex; align-items: center; gap: 0.75rem;"><i data-lucide="check" size="18" style="color: #10B981;"></i> Gestão de tarefas comum (Kanban/Issues)</li>
+                        <li style="display: flex; align-items: center; gap: 0.75rem;"><i data-lucide="check" size="18" style="color: #10B981;"></i> Proativo e autônomo (trabalha sozinho)</li>
+                        <li style="display: flex; align-items: center; gap: 0.75rem;"><i data-lucide="check" size="18" style="color: #10B981;"></i> Travas de orçamento e auditoria integrada</li>
+                    </ul>
                 </div>
             </div>
         </section>
 
-        <!-- SLIDE 3: REQUISITOS E MÉTODOS DE INSTALAÇÃO -->
+        <!-- SLIDE 3: O QUE O PAPERCLIP NÃO É -->
         <section class="slide" data-slide="3">
             <div class="slide-header">
                 <div class="slide-topic-meta">
-                    <i data-lucide="server" size="16"></i>
-                    <span>Tópico 2: Requisitos e Instalação • 10 min</span>
+                    <i data-lucide="alert-circle" size="16" style="color: var(--text-accent);"></i>
+                    <span>Módulo 1: A Visão e os Conceitos</span>
                 </div>
-                <h2 class="slide-title">Requisitos e Métodos de Instalação</h2>
-                <p class="slide-subtitle">Como colocar seus agentes para trabalhar 24/7 de forma sustentável e integrada.</p>
+                <h2 class="slide-title">O que o Paperclip NÃO é</h2>
+                <p class="slide-subtitle">Alinhando expectativas: entendendo a diferença entre fluxos de regras e foco em objetivos.</p>
             </div>
-
-            <div class="slide-content-grid">
-                <div class="card card-glow">
+            
+            <div class="slide-content-grid" style="grid-template-columns: 1.2fr 0.8fr; gap: 3rem;">
+                <div class="card">
                     <div class="card-section-title">
-                        <i data-lucide="cpu"></i>
-                        <span>Infraestrutura: Local vs. Servidor VPS</span>
+                        <i data-lucide="ban" style="color: #EF4444;"></i>
+                        <span>O que o sistema NÃO se propõe a ser</span>
                     </div>
-
-                    <div class="concept-box">
-                        <h4><i data-lucide="laptop" size="18"></i> Instalação Local (Testes Rápidos)</h4>
-                        <p>Excelente para experimentar a ferramenta no computador com um único comando: <code>npx paperclipai onboard --yes</code>. <strong>Limitação:</strong> Se o computador for desligado, os agentes param de trabalhar.</p>
-                    </div>
-
-                    <div class="concept-box" style="border-color: rgba(217, 70, 239, 0.3);">
-                        <h4 style="color: var(--accent-tertiary)"><i data-lucide="cloud" size="18"></i> Servidor VPS (Recomendado para Produção 24/7)</h4>
-                        <p>Para uma operação contínua e ininterrupta. Recomenda-se um servidor VPS Linux (como Hostinger Ubuntu, planos KVM1 ou KVM2) com implantação usando <strong>Docker</strong>.</p>
-                    </div>
-
-                    <div class="step-list">
-                        <div class="step-item">
-                            <div class="step-icon"><i data-lucide="key" size="16"></i></div>
-                            <div class="step-content">
-                                <h4>Conexão de Modelos de IA</h4>
-                                <p>Conecte chaves de API convencionais (Anthropic, OpenAI) ou realize autenticação de dispositivo (Device Auth) para usar assinaturas existentes (como o OpenAI Codex).</p>
-                            </div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 1rem;">
+                        <div class="concept-box" style="background: #F8FAFC;">
+                            <h4 style="color: #EF4444;"><i data-lucide="message-square" size="16" style="vertical-align: middle;"></i> Chatbot Comum</h4>
+                            <p style="font-size: 0.85rem; margin-top: 0.4rem;">Você não fica enviando perguntas isoladas e esperando respostas imediatas.</p>
+                        </div>
+                        <div class="concept-box" style="background: #F8FAFC;">
+                            <h4 style="color: #EF4444;"><i data-lucide="git-branch" size="16" style="vertical-align: middle;"></i> Zapier ou N8N</h4>
+                            <p style="font-size: 0.85rem; margin-top: 0.4rem;">Não é uma automação de caminhos fixos e regras duras (Se A, então faça B).</p>
+                        </div>
+                        <div class="concept-box" style="grid-column: span 2; background: #F8FAFC;">
+                            <h4 style="color: #EF4444;"><i data-lucide="user" size="16" style="vertical-align: middle;"></i> Plataforma de um Único Agente</h4>
+                            <p style="font-size: 0.85rem; margin-top: 0.4rem;">É um framework de múltiplos papéis (CEO, CTO, CMO) trabalhando de forma coordenada por meio de organogramas e priorização autônoma.</p>
                         </div>
                     </div>
                 </div>
@@ -650,300 +608,204 @@
                 <div class="example-box">
                     <div>
                         <div class="example-header">
-                            <span class="example-badge"><i data-lucide="play-circle" size="16"></i> Conectores de IA</span>
-                            <h3 class="example-title">Suporte Nativo a Adaptadores</h3>
+                            <span class="example-badge"><i data-lucide="compass" size="16"></i> Paradigma</span>
+                            <h3 class="example-title">Foco em Objetivos</h3>
                         </div>
-                        <div class="example-body">
-                            <p>O Paperclip foi desenhado para se plugar com facilidade às ferramentas mais modernas de desenvolvimento e raciocínio:</p>
-                            
-                            <div class="code-snippet">
-                                <code>npx paperclipai onboard --yes</code>
-                                <i data-lucide="terminal" size="20"></i>
-                            </div>
-
-                            <div class="example-highlight-box secondary">
-                                <div class="example-highlight-title secondary"><i data-lucide="plug" size="18"></i> Adaptadores Nativos Suportados:</div>
-                                <div class="example-highlight-content">
-                                    O framework possui adaptadores integrados de fábrica para orquestrar agentes baseados em:
-                                    <div style="margin-top: 8px; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; font-weight: 600; font-size: 0.9rem;">
-                                        <span>• Claude Code</span>
-                                        <span>• Cursor API</span>
-                                        <span>• OpenAI Codex</span>
-                                        <span>• Google Gemini</span>
-                                    </div>
-                                </div>
+                        <div class="example-body" style="font-size: 0.95rem; line-height: 1.5; color: var(--text-muted);">
+                            <p>Em vez de programar cada clique ou etapa técnica, você define a meta final da empresa:</p>
+                            <div class="example-highlight-box" style="background: #FFFFFF; margin-top: 1rem;">
+                                <div class="example-highlight-title" style="color: var(--text-accent);"><i data-lucide="target" size="16"></i> Orientação a Metas</div>
+                                <div class="example-highlight-content">A IA decide como atingir o objetivo (Aja para alcançar B), criando tarefas e revisando os resultados de forma contínua.</div>
                             </div>
                         </div>
-                    </div>
-                    <div class="example-footer">
-                        <span>Operação autônoma, estável e segura na nuvem.</span>
-                        <i data-lucide="shield-check" size="20" style="color: var(--accent-tertiary)"></i>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- SLIDE 4: MISSÃO, ORGANOGRAMA E CONTRATAÇÕES -->
+        <!-- SLIDE 4: A ANATOMIA DO SISTEMA -->
         <section class="slide" data-slide="4">
             <div class="slide-header">
                 <div class="slide-topic-meta">
-                    <i data-lucide="settings" size="16"></i>
-                    <span>Tópico 3: Missão, Organograma e Contratações • 10 min</span>
+                    <i data-lucide="network" size="16" style="color: var(--text-accent);"></i>
+                    <span>Módulo 1: A Visão e os Conceitos</span>
                 </div>
-                <h2 class="slide-title">A Missão e o Agente CEO</h2>
-                <p class="slide-subtitle">A definição do objetivo macro da empresa e o papel do primeiro agente contratado.</p>
+                <h2 class="slide-title">A Anatomia do Sistema</h2>
+                <p class="slide-subtitle">Como as camadas do Paperclip se dividem e cooperam para gerir a empresa.</p>
             </div>
+            
+            <div style="display: flex; flex-direction: column; gap: 3.5rem; align-items: center; width: 100%; max-width: 1100px; margin: 0 auto;">
+                <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; width: 100%;">
+                    <div class="concept-box" style="text-align: center; background: #F8FAFC; padding: 1.5rem;">
+                        <div style="display: inline-flex; align-items: center; justify-content: center; width: 2.5rem; height: 2.5rem; border-radius: 50%; background: #EFF6FF; color: var(--text-accent); font-weight: 700; margin-bottom: 1rem; font-size: 1.1rem;">1</div>
+                        <h4 style="justify-content: center; font-size: 1.05rem;">Missão Core</h4>
+                        <p style="font-size: 0.85rem; margin-top: 0.5rem; color: var(--text-muted);">Objetivo macro e limites financeiros definidos pelo humano.</p>
+                    </div>
+                    <div class="concept-box" style="text-align: center; background: #F8FAFC; padding: 1.5rem;">
+                        <div style="display: inline-flex; align-items: center; justify-content: center; width: 2.5rem; height: 2.5rem; border-radius: 50%; background: #EFF6FF; color: var(--text-accent); font-weight: 700; margin-bottom: 1rem; font-size: 1.1rem;">2</div>
+                        <h4 style="justify-content: center; font-size: 1.05rem;">CEO (IA)</h4>
+                        <p style="font-size: 0.85rem; margin-top: 0.5rem; color: var(--text-muted);">Recebe a missão, cria o plano estratégico e contrata a diretoria.</p>
+                    </div>
+                    <div class="concept-box" style="text-align: center; background: #F8FAFC; padding: 1.5rem;">
+                        <div style="display: inline-flex; align-items: center; justify-content: center; width: 2.5rem; height: 2.5rem; border-radius: 50%; background: #EFF6FF; color: var(--text-accent); font-weight: 700; margin-bottom: 1rem; font-size: 1.1rem;">3</div>
+                        <h4 style="justify-content: center; font-size: 1.05rem;">Diretoria (IAs)</h4>
+                        <p style="font-size: 0.85rem; margin-top: 0.5rem; color: var(--text-muted);">Agentes especializados (CTO, CMO) criam e resolvem tarefas técnicas.</p>
+                    </div>
+                    <div class="concept-box" style="text-align: center; background: #F8FAFC; padding: 1.5rem;">
+                        <div style="display: inline-flex; align-items: center; justify-content: center; width: 2.5rem; height: 2.5rem; border-radius: 50%; background: #EFF6FF; color: var(--text-accent); font-weight: 700; margin-bottom: 1rem; font-size: 1.1rem;">4</div>
+                        <h4 style="justify-content: center; font-size: 1.05rem;">Kanban & Issues</h4>
+                        <p style="font-size: 0.85rem; margin-top: 0.5rem; color: var(--text-muted);">Quadro central onde o trabalho é executado e logs são gravados.</p>
+                    </div>
+                </div>
 
-            <div class="slide-content-grid">
-                <div class="card card-glow">
+                <div style="display: flex; align-items: center; gap: 1.5rem; color: var(--text-muted); font-size: 1.05rem; font-weight: 500;">
+                    <span>Conselho (Humano)</span>
+                    <i data-lucide="arrow-right" size="18" style="color: var(--text-accent);"></i>
+                    <span>Estratégia (CEO de IA)</span>
+                    <i data-lucide="arrow-right" size="18" style="color: var(--text-accent);"></i>
+                    <span>Execução (Equipe de IAs)</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 5: ONDE HOSPEDAR A SUA EMPRESA? -->
+        <section class="slide" data-slide="5">
+            <div class="slide-header">
+                <div class="slide-topic-meta">
+                    <i data-lucide="server" size="16" style="color: var(--text-accent);"></i>
+                    <span>Módulo 2: Preparação e Instalação</span>
+                </div>
+                <h2 class="slide-title">Onde hospedar a sua empresa?</h2>
+                <p class="slide-subtitle">A escolha do ambiente físico ideal para garantir a continuidade operacional dos seus agentes.</p>
+            </div>
+            
+            <div class="slide-content-grid" style="grid-template-columns: 1fr 1fr; gap: 3rem;">
+                <div class="card">
                     <div class="card-section-title">
-                        <i data-lucide="flag"></i>
-                        <span>A Missão (Objetivo Macro)</span>
+                        <i data-lucide="laptop"></i>
+                        <span>Servidor Local (Computador Pessoal)</span>
                     </div>
-
+                    <p style="color: var(--text-muted); margin-bottom: 1.5rem; font-size: 0.95rem;">Recomendado apenas para testes rápidos e validação inicial de fluxo.</p>
+                    
                     <div class="concept-box">
-                        <h4><i data-lucide="target" size="18"></i> Contexto Guia Essencial</h4>
-                        <p>Tudo inicia com um objetivo de alto nível definido pelo usuário, por exemplo: <strong>"Construir uma API REST de encurtador de URLs"</strong> ou <strong>"Criar um resumo diário de notícias de tecnologia"</strong>. Esse escopo direciona todas as decisões subsequentes da IA.</p>
+                        <h4><i data-lucide="terminal" size="16"></i> Inicialização em 1 comando</h4>
+                        <p style="font-family: monospace; background: #FFFFFF; padding: 0.5rem; border-radius: 4px; font-size: 0.9rem; margin-top: 0.5rem;">npx paperclipai onboard --yes</p>
                     </div>
-
-                    <div class="concept-box" style="border-color: rgba(217, 70, 239, 0.3);">
-                        <h4 style="color: var(--accent-tertiary)"><i data-lucide="users-2" size="18"></i> O CEO e o "Conselho Diretor"</h4>
-                        <p>O usuário atua como o **Conselho de Diretores (Board)** e cria o agente principal: o <strong>CEO</strong>. A missão do CEO é ler o objetivo macro, estruturar o fluxo de execução e planejar as próximas contratações.</p>
+                    
+                    <div class="concept-box" style="margin-top: 1rem; border-color: rgba(239, 68, 68, 0.2);">
+                        <p style="color: #EF4444; font-size: 0.9rem;"><i data-lucide="alert-triangle" size="14" style="vertical-align: middle;"></i> Se o computador for desligado, a empresa para de rodar.</p>
                     </div>
+                </div>
 
+                <div class="card" style="background: #EFF6FF; border: 1px solid #DBEAFE !important;">
+                    <div class="card-section-title">
+                        <i data-lucide="cloud" style="color: var(--text-accent);"></i>
+                        <span>Servidor VPS (Recomendado para Produção)</span>
+                    </div>
+                    <p style="color: var(--text-muted); margin-bottom: 1.5rem; font-size: 0.95rem;">Hospedagem 24/7 na nuvem utilizando planos KVM1 ou KVM2 (como Hostinger Ubuntu).</p>
+                    
+                    <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.85rem; font-size: 0.95rem; color: var(--text-main);">
+                        <li style="display: flex; align-items: center; gap: 0.5rem;"><i data-lucide="check" size="18" style="color: #10B981;"></i> <strong>Operação 24/7:</strong> Agentes trabalham de madrugada de forma autônoma.</li>
+                        <li style="display: flex; align-items: center; gap: 0.5rem;"><i data-lucide="check" size="18" style="color: #10B981;"></i> <strong>Economia:</strong> Sem consumir energia local ou internet da sua casa.</li>
+                        <li style="display: flex; align-items: center; gap: 0.5rem;"><i data-lucide="check" size="18" style="color: #10B981;"></i> <strong>Implantação Docker:</strong> Ambiente isolado, estável e livre de conflitos.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 6: PASSO A PASSO DA INSTALAÇÃO -->
+        <section class="slide" data-slide="6">
+            <div class="slide-header">
+                <div class="slide-topic-meta">
+                    <i data-lucide="layers" size="16" style="color: var(--text-accent);"></i>
+                    <span>Módulo 2: Preparação e Instalação</span>
+                </div>
+                <h2 class="slide-title">Passo a Passo da Instalação</h2>
+                <p class="slide-subtitle">Como subir o sistema do zero utilizando o painel de gerenciamento Docker da VPS.</p>
+            </div>
+            
+            <div class="slide-content-grid" style="grid-template-columns: 1.15fr 0.85fr; gap: 3rem;">
+                <div class="card">
+                    <div class="card-section-title">
+                        <i data-lucide="terminal"></i>
+                        <span>Processo de Instalação Simplificado</span>
+                    </div>
                     <div class="step-list">
                         <div class="step-item">
                             <div class="step-icon">1</div>
                             <div class="step-content">
-                                <h4>Definição da Diretriz</h4>
-                                <p>O Board estabelece a missão corporativa e inicializa o sistema.</p>
+                                <h4>Acesse o Painel da VPS</h4>
+                                <p>Faça login no painel de administração de servidores da sua VPS (como a Hostinger).</p>
                             </div>
                         </div>
                         <div class="step-item">
                             <div class="step-icon">2</div>
                             <div class="step-content">
-                                <h4>Proposta de Equipe</h4>
-                                <p>O CEO analisa o objetivo e propõe contratar especialistas (ex: CTO, CMO ou Desenvolvedores).</p>
+                                <h4>Selecione o Docker Manager</h4>
+                                <p>Clique no "Gerenciador Docker" e selecione "Implantação com 1 clique" (1-Click Deployment).</p>
                             </div>
                         </div>
-                    </div>
-                </div>
-
-                <div class="example-box">
-                    <div>
-                        <div class="example-header">
-                            <span class="example-badge"><i data-lucide="play-circle" size="16"></i> Visão de Negócio</span>
-                            <h3 class="example-title">O CEO em Operação</h3>
-                        </div>
-                        <div class="example-body">
-                            <p>Ao definir a missão, o CEO assume a responsabilidade de montar a equipe ideal para o projeto:</p>
-                            
-                            <div class="example-highlight-box">
-                                <div class="example-highlight-title"><i data-lucide="send" size="18"></i> Primeira Ação Autônoma do CEO:</div>
-                                <div class="example-highlight-content">
-                                    "Com base na missão de criar um Encurtador de URLs, identifico a necessidade de contratar um CTO com foco em Node.js e um Engenheiro de Software para banco de dados."
-                                </div>
-                            </div>
-
-                            <div class="example-highlight-box secondary">
-                                <div class="example-highlight-title secondary"><i data-lucide="eye" size="18"></i> O que é exibido em aula:</div>
-                                <div class="example-highlight-content">Os alunos observam o CEO planejando os cargos, escrevendo descrições de papéis técnicos e submetendo a requisição de novos funcionários.</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="example-footer">
-                        <span>O CEO toma a iniciativa estratégica inicial.</span>
-                        <i data-lucide="user-cog" size="20" style="color: var(--accent-primary)"></i>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SLIDE 5: CAIXA DE ENTRADA E APROVAÇÃO -->
-        <section class="slide" data-slide="5">
-            <div class="slide-header">
-                <div class="slide-topic-meta">
-                    <i data-lucide="inbox" size="16"></i>
-                    <span>Tópico 4: Caixa de Entrada e Aprovação • 5 min</span>
-                </div>
-                <h2 class="slide-title">Caixa de Entrada e Aprovação</h2>
-                <p class="slide-subtitle">Como gerenciar a expansão da equipe através do fluxo de contratação na aba Inbox.</p>
-            </div>
-
-            <div class="slide-content-grid">
-                <div class="card card-glow">
-                    <div class="card-section-title">
-                        <i data-lucide="shield-check"></i>
-                        <span>Aba Inbox: Governança em Tempo Real</span>
-                    </div>
-
-                    <div class="concept-box">
-                        <h4><i data-lucide="users" size="18"></i> Human-in-the-Loop (Humano no Controle)</h4>
-                        <p>O usuário atua como o Conselho de Diretores (Board). Quando o CEO propõe uma nova contratação para expandir o organograma, a proposta entra na aba <strong>Inbox</strong> aguardando revisão e aprovação.</p>
-                    </div>
-
-                    <div class="concept-box" style="border-color: rgba(217, 70, 239, 0.3);">
-                        <h4 style="color: var(--accent-tertiary)"><i data-lucide="toggle-right" size="18"></i> Contratação 100% Autônoma</h4>
-                        <p><strong>Configuração Opcional:</strong> Se desejado, é possível desativar a necessidade de aprovação humana. Com isso, os agentes passam a contratar outros especialistas de forma direta e sem intervenção do Board.</p>
-                    </div>
-
-                    <div class="step-list">
                         <div class="step-item">
-                            <div class="step-icon"><i data-lucide="git-pull-request" size="16"></i></div>
+                            <div class="step-icon">3</div>
                             <div class="step-content">
-                                <h4>Expansão Dinâmica</h4>
-                                <p>A aprovação do cargo atualiza o organograma visual e ativa o novo agente na fila de execução.</p>
+                                <h4>Defina as Credenciais Admin</h4>
+                                <p>Escolha o e-mail de administrador e a senha principal. O Paperclip fará o setup sozinho.</p>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="example-box">
+                <div class="example-box" style="border: 1px solid #E2E8F0;">
                     <div>
                         <div class="example-header">
-                            <span class="example-badge"><i data-lucide="play-circle" size="16"></i> Processo Seletivo Digital</span>
-                            <h3 class="example-title">Fluxo de Contratação do CTO</h3>
+                            <span class="example-badge"><i data-lucide="container" size="16"></i> Docker Panel</span>
+                            <h3 class="example-title">Painel VPS</h3>
                         </div>
-                        <div class="example-body">
-                            <p>Interface prática de aprovação que os alunos visualizam na aba Inbox:</p>
-                            
-                            <div style="display: flex; align-items: center; justify-content: space-between; background: #FFFFFF; border: 1px solid #E2E8F0; padding: 1.25rem; border-radius: 0.5rem; margin: 1.5rem 0; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
-                                <div style="display: flex; align-items: center; gap: 1rem;">
-                                    <i data-lucide="bot" size="32" style="color: var(--accent-secondary)"></i>
-                                    <div>
-                                        <div style="font-weight: 700; font-size: 1.1rem; color: var(--text-main)">Proposta: Contratar CTO</div>
-                                        <div style="font-size: 0.9rem; color: var(--text-muted)">Modelo: Claude-3-5-Sonnet • Função: Dev Lead</div>
-                                    </div>
-                                </div>
-                                <div style="display: flex; gap: 0.75rem;">
-                                    <span style="background: #10B981; color: #fff; padding: 0.4rem 1rem; border-radius: 0.375rem; font-size: 0.9rem; font-weight: 700; cursor: pointer;">Aprovar</span>
-                                </div>
-                            </div>
-
-                            <div class="example-highlight-box secondary">
-                                <div class="example-highlight-title secondary"><i data-lucide="settings-2" size="18"></i> Modo Autônomo vs. Board:</div>
-                                <div class="example-highlight-content">A escolha do modo de aprovação equilibra a velocidade de desenvolvimento com a segurança de custos na API.</div>
+                        <div class="example-body" style="font-size: 0.9rem; line-height: 1.5; color: var(--text-muted); margin-top: 1rem;">
+                            <div style="background: #FFFFFF; padding: 1rem; border-radius: 6px; border: 1px solid #E2E8F0; text-align: left; font-family: monospace;">
+                                <div style="font-weight: 700; color: var(--text-main); margin-bottom: 0.5rem;">[Gerenciador Docker]</div>
+                                <div>Template: Paperclip AI Stack</div>
+                                <div>Porta: 8080 ➡️ 8080</div>
+                                <div style="color: #10B981; font-weight: 600; margin-top: 0.5rem;">STATUS: ONLINE</div>
                             </div>
                         </div>
-                    </div>
-                    <div class="example-footer">
-                        <span>Fluxo: Proposta do CEO ➔ Inbox ➔ Aprovação ➔ Integração</span>
-                        <i data-lucide="check-square" size="20" style="color: #10B981"></i>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- SLIDE 6: GESTÃO DE OPERAÇÕES E ORÇAMENTO -->
-        <section class="slide" data-slide="6">
-            <div class="slide-header">
-                <div class="slide-topic-meta">
-                    <i data-lucide="kanban" size="16"></i>
-                    <span>Tópico 5: Gestão de Operações e Orçamento • 10 min</span>
-                </div>
-                <h2 class="slide-title">Operações e Controle de Orçamento</h2>
-                <p class="slide-subtitle">Como orquestrar tarefas paralelas e controlar os custos de chamadas de API em tempo real.</p>
-            </div>
-
-            <div class="slide-content-grid">
-                <div class="card card-glow">
-                    <div class="card-section-title">
-                        <i data-lucide="layout-kanban"></i>
-                        <span>Kanban e Mecanismos de Sincronização</span>
-                    </div>
-
-                    <div class="concept-box">
-                        <h4><i data-lucide="trello" size="18"></i> Quadro Kanban (Aba Issues)</h4>
-                        <p>Acompanhe o fluxo de tarefas (A Fazer, Em Progresso, Concluído). O sistema utiliza um <strong>mecanismo de checkout</strong> para garantir que múltiplos agentes não tentem trabalhar ou modificar a mesma Issue simultaneamente.</p>
-                    </div>
-
-                    <div class="concept-box" style="border-color: rgba(217, 70, 239, 0.3);">
-                        <h4 style="color: var(--accent-tertiary)"><i data-lucide="heart" size="18"></i> Heartbeats (Intervalo de Pulso)</h4>
-                        <p>Define com que frequência as IAs acordam para verificar se há tarefas na fila. O valor padrão recomendado de <strong>600 segundos (10 min)</strong> balanceia custos e tempo de resposta operacional de forma eficiente.</p>
-                    </div>
-
-                    <div class="step-list">
-                        <div class="step-item">
-                            <div class="step-icon"><i data-lucide="shield-alert" size="16"></i></div>
-                            <div class="step-content">
-                                <h4>Controle Orçamentário</h4>
-                                <p>Defina o limite de gastos em USD mensal ou por agente. Se o consumo atingir 100% do planejado, as IAs <strong>pausam automaticamente</strong>.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="example-box">
-                    <div>
-                        <div class="example-header">
-                            <span class="example-badge"><i data-lucide="play-circle" size="16"></i> Painel Financeiro</span>
-                            <h3 class="example-title">Controle de Gastos das APIs</h3>
-                        </div>
-                        <div class="example-body">
-                            <p>Demonstração visual do controle do budget para manter a sustentabilidade da operação:</p>
-                            
-                            <div style="background: #FFFFFF; border: 1px solid #E2E8F0; padding: 1.5rem; border-radius: 0.5rem; margin: 1.5rem 0; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
-                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
-                                    <span style="font-weight: 700; font-size: 1.1rem;">Limite de Consumo Mensal</span>
-                                    <span style="color: #10B981; font-weight: 800; font-size: 1.2rem;">US$ 50,00</span>
-                                </div>
-                                <div style="width: 100%; height: 10px; background: #E2E8F0; border-radius: 5px; overflow: hidden;">
-                                    <div style="width: 80%; height: 100%; background: #3B82F6;"></div>
-                                </div>
-                                <div style="display: flex; justify-content: space-between; font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem;">
-                                    <span>Gasto Atual: US$ 40,00</span>
-                                    <span>Status: Alerta (80% atingido)</span>
-                                </div>
-                            </div>
-
-                            <div class="example-highlight-box secondary">
-                                <div class="example-highlight-title secondary"><i data-lucide="lock" size="18"></i> Mecanismo de Prevenção:</div>
-                                <div class="example-highlight-content">A trava de segurança evita cobranças inesperadas ou loops infinitos de agentes na rede da Anthropic ou OpenAI.</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="example-footer">
-                        <span>Previsibilidade operacional com custo sob controle humano.</span>
-                        <i data-lucide="shield-check" size="20" style="color: #10B981"></i>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SLIDE 7: CONECTANDO AO MUNDO REAL: SKILLS E APIS -->
+        <!-- SLIDE 7: DANDO UM "CÉREBRO" À OPERAÇÃO -->
         <section class="slide" data-slide="7">
             <div class="slide-header">
                 <div class="slide-topic-meta">
-                    <i data-lucide="plug" size="16"></i>
-                    <span>Tópico 6: Conectando ao Mundo Real: Skills e APIs • 10 min</span>
+                    <i data-lucide="brain" size="16" style="color: var(--text-accent);"></i>
+                    <span>Módulo 2: Preparação e Instalação</span>
                 </div>
-                <h2 class="slide-title">Dando Poderes aos Agentes (Skills)</h2>
-                <p class="slide-subtitle">Como expandir as capacidades das IAs com chaves de API externas e guias de habilidades executáveis.</p>
+                <h2 class="slide-title">Dando um "Cérebro" à Operação</h2>
+                <p class="slide-subtitle">Conectando inteligência artificial aos agentes por meio de chaves de API.</p>
             </div>
-
-            <div class="slide-content-grid">
-                <div class="card card-glow">
+            
+            <div class="slide-content-grid" style="grid-template-columns: 1.2fr 0.8fr; gap: 3rem;">
+                <div class="card">
                     <div class="card-section-title">
-                        <i data-lucide="cable"></i>
-                        <span>Secrets e Habilidades (Skills)</span>
+                        <i data-lucide="key"></i>
+                        <span>Integração de Modelos</span>
                     </div>
-
-                    <div class="concept-box">
-                        <h4><i data-lucide="key" size="18"></i> Injeção de Segredos Ambientais</h4>
-                        <p>Forneça credenciais com segurança no painel. O agente pode usar serviços reais injetando chaves como <strong>Brave Search API</strong> (para navegar na internet) e <strong>Resend API</strong> (para envio de emails).</p>
-                    </div>
-
-                    <div class="concept-box" style="border-color: rgba(217, 70, 239, 0.3);">
-                        <h4 style="color: var(--accent-tertiary)"><i data-lucide="file-text" size="18"></i> Definição do Arquivo SKILL.md</h4>
-                        <p>O <strong>SKILL.md</strong> é um guia prático de execução estruturado em markdown (como um manual de deploy de banco de dados). Ele descreve o passo a passo exato que o agente deve seguir para completar uma tarefa complexa sem desviar do objetivo.</p>
-                    </div>
-
+                    <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Para raciocinar e criar os códigos ou estratégias, a plataforma exige conexão a modelos de linguagem:</p>
+                    
                     <div class="step-list">
                         <div class="step-item">
-                            <div class="step-icon"><i data-lucide="code" size="16"></i></div>
+                            <div class="step-icon"><i data-lucide="unlock" size="14"></i></div>
                             <div class="step-content">
-                                <h4>Sem Desvio de Escopo</h4>
-                                <p>O SKILL.md atua como o manual operacional (SOP) oficial de um departamento da sua empresa de IA.</p>
+                                <h4>Chaves de API Estritamente Necessárias</h4>
+                                <p>Insira a chave de API da Anthropic (Claude 3.5 Sonnet) ou da OpenAI (GPT-4o) nas configurações da plataforma.</p>
+                            </div>
+                        </div>
+                        <div class="step-item">
+                            <div class="step-icon"><i data-lucide="laptop" size="14"></i></div>
+                            <div class="step-content">
+                                <h4>Autenticação de Dispositivo (Device Auth)</h4>
+                                <p>Conecte chaves e licenças de ferramentas de desenvolvimento existentes, como Cursor API ou OpenAI Codex.</p>
                             </div>
                         </div>
                     </div>
@@ -952,72 +814,464 @@
                 <div class="example-box">
                     <div>
                         <div class="example-header">
-                            <span class="example-badge"><i data-lucide="play-circle" size="16"></i> Demonstração Integrada</span>
-                            <h3 class="example-title">Execução com Integrações</h3>
+                            <span class="example-badge"><i data-lucide="sliders" size="16"></i> Configuração</span>
+                            <h3 class="example-title">Painel de Chaves</h3>
                         </div>
-                        <div class="example-body">
-                            <p>Exemplo de fluxo disparado ao carregar uma skill no ecossistema:</p>
-                            
-                            <div class="code-snippet">
-                                <code>SKILL.md: Tutorial de Deploy de DB</code>
-                                <i data-lucide="file-code" size="20"></i>
-                            </div>
-
-                            <div class="example-highlight-box">
-                                <div class="example-highlight-title"><i data-lucide="search" size="18"></i> Navegação & Notificação:</div>
-                                <div class="example-highlight-content">
-                                    O agente usa a <strong>Brave Search API</strong> para validar dados, executa os passos do **SKILL.md** e dispara o relatório final via <strong>Resend API</strong> para o email do Board.
+                        <div class="example-body" style="font-size: 0.95rem; margin-top: 1rem;">
+                            <div style="background: #FFFFFF; padding: 1.25rem; border-radius: 8px; border: 1px solid #E2E8F0; display: flex; flex-direction: column; gap: 0.75rem;">
+                                <div style="display: flex; justify-content: space-between; align-items: center;">
+                                    <span style="font-weight: 600;">Anthropic API Key</span>
+                                    <span style="font-size: 0.8rem; background: #D1FAE5; color: #065F46; padding: 0.2rem 0.5rem; border-radius: 100px; font-weight: 700;">ATIVO</span>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; align-items: center;">
+                                    <span style="font-weight: 600;">OpenAI API Key</span>
+                                    <span style="font-size: 0.8rem; background: #D1FAE5; color: #065F46; padding: 0.2rem 0.5rem; border-radius: 100px; font-weight: 700;">ATIVO</span>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; align-items: center;">
+                                    <span style="font-weight: 600;">Cursor Auth</span>
+                                    <span style="font-size: 0.8rem; background: #FEE2E2; color: #991B1B; padding: 0.2rem 0.5rem; border-radius: 100px; font-weight: 700;">OFFLINE</span>
                                 </div>
                             </div>
-
-                            <div class="example-highlight-box secondary" style="margin-top: 10px;">
-                                <div class="example-highlight-title secondary"><i data-lucide="alert-circle" size="18"></i> Eficácia dos Agentes:</div>
-                                <div class="example-highlight-content">Com as credenciais salvas e as diretrizes do SKILL.md claras, o agente opera sem a necessidade de intervenção.</div>
-                            </div>
                         </div>
-                    </div>
-                    <div class="example-footer">
-                        <span>Conexão direta com sistemas de e-mail e busca ao vivo.</span>
-                        <i data-lucide="send" size="20" style="color: var(--accent-tertiary)"></i>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- SLIDE 8: CONCLUSÃO E LIMITAÇÕES -->
+        <!-- SLIDE 8: O CORE DA OPERAÇÃO: A MISSÃO -->
         <section class="slide" data-slide="8">
             <div class="slide-header">
                 <div class="slide-topic-meta">
-                    <i data-lucide="check-circle" size="16"></i>
-                    <span>Tópico 7: Encerramento e Limitações • 5 min</span>
+                    <i data-lucide="target" size="16" style="color: var(--text-accent);"></i>
+                    <span>Módulo 3: Fundando a Empresa</span>
                 </div>
-                <h2 class="slide-title">Conclusão e Limitações</h2>
-                <p class="slide-subtitle">O equilíbrio necessário entre a inteligência dos agentes e a governança estratégica humana.</p>
+                <h2 class="slide-title">O Core da Operação: A Missão</h2>
+                <p class="slide-subtitle">A definição do objetivo estratégico que direciona o planejamento de todos os agentes.</p>
             </div>
-
-            <div class="slide-content-grid">
-                <div class="card card-glow">
+            
+            <div class="slide-content-grid" style="grid-template-columns: 1fr 1fr; gap: 3rem;">
+                <div class="card">
                     <div class="card-section-title">
-                        <i data-lucide="scale"></i>
-                        <span>Limites da Autonomia da IA</span>
+                        <i data-lucide="pencil-line"></i>
+                        <span>Definição da Missão no Onboarding</span>
                     </div>
-
+                    <p style="color: var(--text-muted); line-height: 1.5; margin-bottom: 1.5rem;">Tudo começa com a definição do propósito principal da sua empresa de IA. Evite ordens ambíguas. Dê parâmetros claros:</p>
+                    
                     <div class="concept-box">
-                        <h4><i data-lucide="alert-triangle" size="18"></i> IA Não Substitui a Visão Humana</h4>
-                        <p>Os agentes autônomos são excelentes para executar tarefas descritas e encadeadas. No entanto, eles <strong>não substituem o julgamento crítico e estratégico</strong> em decisões comerciais de alto risco.</p>
+                        <h4 style="font-size: 1rem;"><i data-lucide="check" size="16" style="vertical-align: middle;"></i> Exemplo de Agência de Conteúdo:</h4>
+                        <p style="font-style: italic; font-size: 0.95rem; margin-top: 0.4rem; color: var(--text-muted);">"Criar uma agência de criação de conteúdo para redes sociais sobre inteligência artificial, pesquisando tendências e escrevendo rascunhos de posts."</p>
                     </div>
+                </div>
 
-                    <div class="concept-box" style="border-color: rgba(245, 158, 11, 0.4);">
-                        <h4 style="color: #F59E0B"><i data-lucide="sliders" size="18"></i> Dependência da Definição de Objetivo</h4>
-                        <p>A qualidade e a precisão do trabalho gerado pelas IAs dependem integralmente de como o usuário especifica a <strong>missão core e os critérios de sucesso</strong> das tarefas.</p>
+                <div class="example-box">
+                    <div>
+                        <div class="example-header">
+                            <span class="example-badge"><i data-lucide="input" size="16"></i> Campo Missão</span>
+                            <h3 class="example-title">Painel de Criação</h3>
+                        </div>
+                        <div class="example-body" style="font-size: 0.95rem; margin-top: 1rem;">
+                            <div style="background: #FFFFFF; padding: 1.25rem; border-radius: 8px; border: 1px solid #E2E8F0;">
+                                <label style="display: block; font-weight: 700; font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.5rem;">MISSION</label>
+                                <textarea readonly style="width: 100%; height: 80px; border: 1px solid #CBD5E1; border-radius: 4px; padding: 0.5rem; font-family: monospace; font-size: 0.85rem; resize: none; color: var(--text-main);">"Construir um encurtador de URLs em Node.js com banco de dados SQLite e documentação de rotas."</textarea>
+                            </div>
+                        </div>
                     </div>
+                </div>
+            </div>
+        </section>
 
+        <!-- SLIDE 9: O CEO E O CONSELHO DIRETOR -->
+        <section class="slide" data-slide="9">
+            <div class="slide-header">
+                <div class="slide-topic-meta">
+                    <i data-lucide="users" size="16" style="color: var(--text-accent);"></i>
+                    <span>Módulo 3: Fundando a Empresa</span>
+                </div>
+                <h2 class="slide-title">O CEO e o Conselho Diretor</h2>
+                <p class="slide-subtitle">A relação hierárquica entre o conselho humano e o agente orquestrador principal.</p>
+            </div>
+            
+            <div class="slide-content-grid" style="grid-template-columns: 1.15fr 0.85fr; gap: 3rem;">
+                <div class="card">
+                    <div class="card-section-title">
+                        <i data-lucide="git-pull-request"></i>
+                        <span>Divisão de Papéis</span>
+                    </div>
+                    <div style="display: flex; flex-direction: column; gap: 1rem; margin-top: 1rem;">
+                        <div class="concept-box" style="background: #F8FAFC;">
+                            <h4><i data-lucide="user-check" size="16" style="color: var(--text-accent);"></i> Humano: O Conselho Diretor</h4>
+                            <p style="font-size: 0.85rem; margin-top: 0.25rem;">Define a missão, aprova orçamentos máximos de API e aprova propostas na caixa de entrada (Inbox).</p>
+                        </div>
+                        <div class="concept-box" style="background: #F8FAFC;">
+                            <h4><i data-lucide="bot" size="16" style="color: var(--text-accent);"></i> IA: O Agente CEO</h4>
+                            <p style="font-size: 0.85rem; margin-top: 0.25rem;">Cria o plano estratégico de ação, sugere a contratação de especialistas subordinados e gerencia as tarefas diárias.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="example-box" style="justify-content: center; align-items: center; text-align: center;">
+                    <div>
+                        <i data-lucide="shield-check" size="48" style="color: var(--text-accent); margin-bottom: 1rem;"></i>
+                        <h4 style="font-family: var(--font-title); font-size: 1.25rem; color: var(--text-main); margin-bottom: 0.5rem;">Cadeia de Decisão</h4>
+                        <div style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.5; text-align: left;">
+                            O CEO de IA executa a operação braçal, mas as decisões estratégicas e estruturais dependem sempre do aval humano.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 10: A PRIMEIRA TAREFA DO CEO -->
+        <section class="slide" data-slide="10">
+            <div class="slide-header">
+                <div class="slide-topic-meta">
+                    <i data-lucide="play" size="16" style="color: var(--text-accent);"></i>
+                    <span>Módulo 3: Fundando a Empresa</span>
+                </div>
+                <h2 class="slide-title">A Primeira Tarefa do CEO</h2>
+                <p class="slide-subtitle">O pontapé inicial das atividades e a criação do planejamento inicial pela IA.</p>
+            </div>
+            
+            <div class="slide-content-grid" style="grid-template-columns: 1.2fr 0.8fr; gap: 3rem;">
+                <div class="card">
+                    <div class="card-section-title">
+                        <i data-lucide="activity"></i>
+                        <span>Start do Raciocínio</span>
+                    </div>
+                    <p style="color: var(--text-muted); line-height: 1.5; margin-bottom: 1.5rem;">Ao ativar o sistema, a primeira ação autônoma do CEO é redigir o planejamento e identificar quais papéis técnicos serão necessários contratar:</p>
+                    
+                    <div class="concept-box">
+                        <h4><i data-lucide="clipboard-list" size="16" style="vertical-align: middle;"></i> Issue #1 (Contratação e Plano)</h4>
+                        <p style="font-size: 0.9rem; margin-top: 0.4rem; color: var(--text-muted);">"Elaborar o plano de ação técnico do encurtador de URLs e sugerir a contratação do engenheiro/especialista adequado para desenvolver o código."</p>
+                    </div>
+                </div>
+
+                <div class="example-box">
+                    <div>
+                        <div class="example-header">
+                            <span class="example-badge"><i data-lucide="terminal" size="16"></i> Terminal Logs</span>
+                            <h3 class="example-title">CEO Logs</h3>
+                        </div>
+                        <div class="example-body" style="font-size: 0.85rem; font-family: monospace; margin-top: 1rem;">
+                            <div style="background: #0F172A; padding: 1.25rem; border-radius: 8px; color: #38BDF8; line-height: 1.4;">
+                                <div>[CEO] Analisando missão principal...</div>
+                                <div style="color: #E2E8F0;">[CEO] Criando planejamento de tarefas...</div>
+                                <div style="color: #F59E0B;">[CEO] Sugestão: Contratar CTO (Diretor de Tecnologia)</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 11: A CAIXA DE ENTRADA (INBOX) E APROVAÇÕES -->
+        <section class="slide" data-slide="11">
+            <div class="slide-header">
+                <div class="slide-topic-meta">
+                    <i data-lucide="inbox" size="16" style="color: var(--text-accent);"></i>
+                    <span>Módulo 4: Orquestração e Organograma</span>
+                </div>
+                <h2 class="slide-title">Inbox e Governança</h2>
+                <p class="slide-subtitle">A caixa de entrada onde o usuário revisa e aprova as contratações e passos sugeridos pelas IAs.</p>
+            </div>
+            
+            <div class="slide-content-grid" style="grid-template-columns: 1fr 1fr; gap: 3rem;">
+                <div class="card">
+                    <div class="card-section-title">
+                        <i data-lucide="check-square"></i>
+                        <span>Controle de Fluxo pelo Inbox</span>
+                    </div>
+                    <p style="color: var(--text-muted); line-height: 1.5; margin-bottom: 1.5rem;">O Inbox funciona como a central de comando do conselho humano. A IA não toma atitudes críticas sem autorização prévia:</p>
+                    
+                    <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.85rem; font-size: 0.95rem; color: var(--text-muted);">
+                        <li><i data-lucide="chevron-right" size="16" style="color: var(--text-accent); vertical-align: middle;"></i> O CEO sugerer a contratação do CTO para desenvolver o código.</li>
+                        <li><i data-lucide="chevron-right" size="16" style="color: var(--text-accent); vertical-align: middle;"></i> O usuário recebe a notificação no painel do Inbox.</li>
+                        <li><i data-lucide="chevron-right" size="16" style="color: var(--text-accent); vertical-align: middle;"></i> Basta clicar em "Aprovar" para que o novo agente seja iniciado.</li>
+                    </ul>
+                </div>
+
+                <div class="example-box">
+                    <div>
+                        <div class="example-header">
+                            <span class="example-badge"><i data-lucide="bell" size="16"></i> Inbox Dashboard</span>
+                            <h3 class="example-title">Decisão Pendente</h3>
+                        </div>
+                        <div class="example-body" style="font-size: 0.95rem; margin-top: 1rem;">
+                            <div style="background: #FFFFFF; padding: 1.25rem; border-radius: 8px; border: 1px solid #E2E8F0; display: flex; flex-direction: column; gap: 1rem;">
+                                <div>
+                                    <div style="font-weight: 700; color: var(--text-main);">Proposta de Contratação: CTO (Diretor de Tecnologia)</div>
+                                    <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.25rem;">Agente especializado encarregado de escrever os scripts in Node.js.</div>
+                                </div>
+                                <div style="display: flex; gap: 0.5rem; justify-content: flex-end;">
+                                    <button style="background: #F1F5F9; border: none; padding: 0.45rem 1rem; border-radius: 4px; font-weight: 600; cursor: pointer; font-size: 0.85rem;">Recusar</button>
+                                    <button style="background: var(--accent-primary); color: #FFF; border: none; padding: 0.45rem 1rem; border-radius: 4px; font-weight: 600; cursor: pointer; font-size: 0.85rem;">Aprovar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 12: O ORGANOGRAMA VISUAL (ORG CHART) -->
+        <section class="slide" data-slide="12">
+            <div class="slide-header">
+                <div class="slide-topic-meta">
+                    <i data-lucide="sitemap" size="16" style="color: var(--text-accent);"></i>
+                    <span>Módulo 4: Orquestração e Organograma</span>
+                </div>
+                <h2 class="slide-title">O Organograma Visual (Org Chart)</h2>
+                <p class="slide-subtitle">A hierarquia funcional que se forma à medida que novos agentes são contratados.</p>
+            </div>
+            
+            <div class="slide-content-grid" style="grid-template-columns: 1fr 1.2fr; gap: 3rem;">
+                <div class="card">
+                    <div class="card-section-title">
+                        <i data-lucide="git-branch"></i>
+                        <span>Estrutura Organizacional</span>
+                    </div>
+                    <p style="color: var(--text-muted); line-height: 1.5; margin-bottom: 1.5rem;">O painel do organograma desenha de forma gráfica quem gerencia quem dentro do sistema de multiagentes:</p>
+                    
+                    <div class="concept-box">
+                        <h4><i data-lucide="split" size="16" style="vertical-align: middle;"></i> Delegação em Cascata</h4>
+                        <p style="font-size: 0.85rem; margin-top: 0.4rem; color: var(--text-muted);">O CEO de IA gerencia e atribui tarefas para o CTO (Tecnologia) e o CMO (Marketing), mantendo o fluxo distribuído e eficiente.</p>
+                    </div>
+                </div>
+
+                <div class="example-box" style="justify-content: center; align-items: center; border: 1px solid #E2E8F0;">
+                    <div style="display: flex; flex-direction: column; align-items: center; gap: 1rem; width: 100%;">
+                        <div style="background: #EFF6FF; padding: 0.6rem 1.2rem; border-radius: 6px; border: 1px solid #DBEAFE; font-weight: 700; text-align: center; font-size: 0.9rem;">
+                            <div>Conselho Humano (Você)</div>
+                        </div>
+                        <i data-lucide="arrow-down" size="16" style="color: var(--text-muted);"></i>
+                        <div style="background: #FFFFFF; padding: 0.6rem 1.2rem; border-radius: 6px; border: 1px solid #E2E8F0; font-weight: 700; text-align: center; font-size: 0.9rem;">
+                            <div>CEO (IA)</div>
+                        </div>
+                        <div style="display: flex; gap: 1.5rem;">
+                            <div style="background: #FFFFFF; padding: 0.6rem 1rem; border-radius: 6px; border: 1px solid #E2E8F0; font-weight: 700; font-size: 0.8rem; text-align: center;">
+                                <div>CTO (IA)</div>
+                                <span style="font-size: 0.7rem; font-weight: 400; color: var(--text-muted);">Código e Arquitetura</span>
+                            </div>
+                            <div style="background: #FFFFFF; padding: 0.6rem 1rem; border-radius: 6px; border: 1px solid #E2E8F0; font-weight: 700; font-size: 0.8rem; text-align: center;">
+                                <div>CMO (IA)</div>
+                                <span style="font-size: 0.7rem; font-weight: 400; color: var(--text-muted);">Criação de Conteúdo</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 13: GESTÃO DE TAREFAS (ISSUES) -->
+        <section class="slide" data-slide="13">
+            <div class="slide-header">
+                <div class="slide-topic-meta">
+                    <i data-lucide="list-todo" size="16" style="color: var(--text-accent);"></i>
+                    <span>Módulo 4: Orquestração e Organograma</span>
+                </div>
+                <h2 class="slide-title">Gestão de Tarefas (Issues)</h2>
+                <p class="slide-subtitle">Como as demandas são organizadas de forma persistente e sem duplicação de esforço.</p>
+            </div>
+            
+            <div class="slide-content-grid" style="grid-template-columns: 1.15fr 0.85fr; gap: 3rem;">
+                <div class="card">
+                    <div class="card-section-title">
+                        <i data-lucide="clipboard-list"></i>
+                        <span>Estrutura de Demanda</span>
+                    </div>
+                    <p style="color: var(--text-muted); line-height: 1.5; margin-bottom: 1.5rem;">Cada atividade criada na plataforma funciona como um ticket (Issue) contendo informações completas:</p>
+                    
+                    <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.85rem; font-size: 0.95rem; color: var(--text-muted);">
+                        <li><i data-lucide="check" size="18" style="color: var(--text-accent);"></i> <strong>Título e Descrição:</strong> A especificação exata do entregável.</li>
+                        <li><i data-lucide="check" size="18" style="color: var(--text-accent);"></i> <strong>Responsável:</strong> O agente designado (CEO, CTO ou CMO).</li>
+                        <li><i data-lucide="check" size="18" style="color: var(--text-accent);"></i> <strong>Histórico de Raciocínio:</strong> Thread estilo e-mail com as mensagens trocadas.</li>
+                    </ul>
+                </div>
+
+                <div class="example-box">
+                    <div>
+                        <div class="example-header">
+                            <span class="example-badge"><i data-lucide="message-square" size="16"></i> Thread de Discussão</span>
+                            <h3 class="example-title">Issue #104: Testes</h3>
+                        </div>
+                        <div class="example-body" style="font-size: 0.85rem; margin-top: 1rem;">
+                            <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                                <div style="background: #FFFFFF; padding: 0.75rem; border-radius: 6px; border: 1px solid #E2E8F0;">
+                                    <div style="font-weight: 700; color: var(--text-main);">[CTO] para [CEO]</div>
+                                    <div style="font-style: italic; color: var(--text-muted); margin-top: 0.25rem;">"Código do encurtador finalizado. Iniciando bateria de testes locais."</div>
+                                </div>
+                                <div style="background: #FFFFFF; padding: 0.75rem; border-radius: 6px; border: 1px solid #E2E8F0;">
+                                    <div style="font-weight: 700; color: var(--text-main);">[CEO] para [CTO]</div>
+                                    <div style="font-style: italic; color: var(--text-muted); margin-top: 0.25rem;">"Entendido. Avise assim que o banco de dados SQLite estiver persistindo."</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 14: O QUADRO KANBAN -->
+        <section class="slide" data-slide="14">
+            <div class="slide-header">
+                <div class="slide-topic-meta">
+                    <i data-lucide="trello" size="16" style="color: var(--text-accent);"></i>
+                    <span>Módulo 4: Orquestração e Organograma</span>
+                </div>
+                <h2 class="slide-title">O Quadro Kanban</h2>
+                <p class="slide-subtitle">O fluxo visual de tarefas gerenciado de forma inteiramente automática pelas IAs.</p>
+            </div>
+            
+            <div class="slide-content-grid" style="grid-template-columns: 1fr 1.25fr; gap: 3rem;">
+                <div class="card">
+                    <div class="card-section-title">
+                        <i data-lucide="kanban"></i>
+                        <span>Movimentação do Quadro</span>
+                    </div>
+                    <p style="color: var(--text-muted); line-height: 1.5; margin-bottom: 1.5rem;">As tarefas transitam de forma organizada entre as colunas conforme o desenvolvimento progride:</p>
+                    
+                    <div class="concept-box">
+                        <h4><i data-lucide="play-circle" size="16" style="vertical-align: middle;"></i> Checkout de Tarefas</h4>
+                        <p style="font-size: 0.85rem; margin-top: 0.4rem; color: var(--text-muted);">Quando um agente inicia uma atividade, ele a move para 'In Progress'. Ao concluir o deploy ou teste, atualiza o status para 'Done'.</p>
+                    </div>
+                </div>
+
+                <div class="example-box" style="border: 1px solid #E2E8F0; padding: 1.25rem;">
+                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; width: 100%; height: 100%;">
+                        <div style="background: #F1F5F9; padding: 0.5rem; border-radius: 6px; display: flex; flex-direction: column; gap: 0.5rem;">
+                            <div style="font-weight: 700; font-size: 0.75rem; color: var(--text-muted);">TO DO</div>
+                            <div style="background: #FFFFFF; padding: 0.5rem; border-radius: 4px; font-size: 0.7rem; border: 1px solid #E2E8F0;">#105 Enviar e-mail</div>
+                        </div>
+                        <div style="background: #EFF6FF; padding: 0.5rem; border-radius: 6px; display: flex; flex-direction: column; gap: 0.5rem;">
+                            <div style="font-weight: 700; font-size: 0.75rem; color: var(--text-accent);">IN PROGRESS</div>
+                            <div style="background: #FFFFFF; padding: 0.5rem; border-radius: 4px; font-size: 0.7rem; border: 1px solid #DBEAFE; font-weight: 600;">#104 Testar rotas</div>
+                        </div>
+                        <div style="background: #D1FAE5; padding: 0.5rem; border-radius: 6px; display: flex; flex-direction: column; gap: 0.5rem;">
+                            <div style="font-weight: 700; font-size: 0.75rem; color: #065F46;">DONE</div>
+                            <div style="background: #FFFFFF; padding: 0.5rem; border-radius: 4px; font-size: 0.7rem; border: 1px solid #A7F3D0; text-decoration: line-through; color: var(--text-muted);">#101 Setup do DB</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 15: HEARTBEATS (O PULSO DOS AGENTES) -->
+        <section class="slide" data-slide="15">
+            <div class="slide-header">
+                <div class="slide-topic-meta">
+                    <i data-lucide="activity" size="16" style="color: var(--text-accent);"></i>
+                    <span>Módulo 5: Operações, Limites e Custos</span>
+                </div>
+                <h2 class="slide-title">Heartbeats (O Pulso dos Agentes)</h2>
+                <p class="slide-subtitle">Como as IAs programam sua rotina e economizam recursos com ativações temporizadas.</p>
+            </div>
+            
+            <div class="slide-content-grid" style="grid-template-columns: 1.15fr 0.85fr; gap: 3rem;">
+                <div class="card">
+                    <div class="card-section-title">
+                        <i data-lucide="clock"></i>
+                        <span>Ciclo de Raciocínio (Heartbeat)</span>
+                    </div>
+                    <p style="color: var(--text-muted); line-height: 1.5; margin-bottom: 1.5rem;">Para evitar custos exponenciais, os agentes não rodam de forma contínua, mas sim em pulsos periódicos:</p>
+                    
+                    <div class="concept-box">
+                        <h4><i data-lucide="repeat" size="16" style="vertical-align: middle;"></i> Loop de 600 segundos (10 minutos)</h4>
+                        <p style="font-size: 0.85rem; margin-top: 0.4rem; color: var(--text-muted);">A cada 10 minutos, o agente acorda, lê o Kanban de Issues, executa o raciocínio necessário, atualiza os arquivos e volta para o modo de espera (Standby).</p>
+                    </div>
+                </div>
+
+                <div class="example-box">
+                    <div>
+                        <div class="example-header">
+                            <span class="example-badge"><i data-lucide="calendar" size="16"></i> Cronograma</span>
+                            <h3 class="example-title">Ciclo de Execução</h3>
+                        </div>
+                        <div class="example-body" style="font-size: 0.9rem; margin-top: 1rem; line-height: 1.5;">
+                            <div style="display: flex; flex-direction: column; gap: 0.4rem;">
+                                <div style="color: var(--text-muted);">[12:00] Acordando (Heartbeat ativo)</div>
+                                <div style="font-weight: 700; color: var(--text-main);">[12:01] Processando Issue #104 (Código)</div>
+                                <div style="color: var(--text-muted);">[12:02] Relatório enviado e entrando em Standby</div>
+                                <div style="font-size: 0.8rem; color: var(--accent-tertiary); font-weight: 600; margin-top: 0.5rem;">Próximo pulso em: 9 minutos e 58 segundos</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 16: EVITANDO FALÊNCIA: CONTROLE DE ORÇAMENTO -->
+        <section class="slide" data-slide="16">
+            <div class="slide-header">
+                <div class="slide-topic-meta">
+                    <i data-lucide="dollar-sign" size="16" style="color: var(--text-accent);"></i>
+                    <span>Módulo 5: Operações, Limites e Custos</span>
+                </div>
+                <h2 class="slide-title">Evitando Falência: Controle de Orçamento</h2>
+                <p class="slide-subtitle">Como as travas de orçamento (Budgets) protegem sua chave de API de loops indesejados.</p>
+            </div>
+            
+            <div class="slide-content-grid" style="grid-template-columns: 1fr 1fr; gap: 3rem;">
+                <div class="card">
+                    <div class="card-section-title">
+                        <i data-lucide="alert-triangle"></i>
+                        <span>Prevenção de Loops e Custos</span>
+                    </div>
+                    <p style="color: var(--text-muted); line-height: 1.5; margin-bottom: 1.5rem;">Se um agente entrar em loop lógico ou tentar reescrever código indefinidamente, ele pode consumir centenas de dólares. O Paperclip resolve isso:</p>
+                    
+                    <div class="concept-box">
+                        <h4><i data-lucide="shield-alert" size="16" style="vertical-align: middle;"></i> Teto Rígido de Orçamento</h4>
+                        <p style="font-size: 0.85rem; margin-top: 0.4rem; color: var(--text-muted);">Defina uma trava rígida (ex: US$ 20). Ao bater 100% desse limite, o sistema congela o agente automaticamente e notifica você.</p>
+                    </div>
+                </div>
+
+                <div class="example-box">
+                    <div>
+                        <div class="example-header">
+                            <span class="example-badge"><i data-lucide="credit-card" size="16"></i> Budget Limits</span>
+                            <h3 class="example-title">Consumo de APIs</h3>
+                        </div>
+                        <div class="example-body" style="font-size: 0.95rem; margin-top: 1rem;">
+                            <div style="background: #FFFFFF; padding: 1.25rem; border-radius: 8px; border: 1px solid #E2E8F0; display: flex; flex-direction: column; gap: 0.75rem;">
+                                <div style="display: flex; justify-content: space-between; font-weight: 700;">
+                                    <span>Agente CTO</span>
+                                    <span>US$ 11.00 / US$ 60.00</span>
+                                </div>
+                                <div style="width: 100%; height: 8px; background: #F1F5F9; border-radius: 100px; overflow: hidden;">
+                                    <div style="width: 18%; height: 100%; background: var(--accent-primary);"></div>
+                                </div>
+                                <div style="font-size: 0.8rem; color: var(--text-muted);">Trava automática de proteção ativa no servidor.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 17: VARIÁVEIS DE AMBIENTE (SEGREDOS) -->
+        <section class="slide" data-slide="17">
+            <div class="slide-header">
+                <div class="slide-topic-meta">
+                    <i data-lucide="lock" size="16" style="color: var(--text-accent);"></i>
+                    <span>Módulo 6: Avançado - Integrações e Habilidades</span>
+                </div>
+                <h2 class="slide-title">Variáveis de Ambiente (Segredos)</h2>
+                <p class="slide-subtitle">Como gerenciar credenciais e chaves de acesso a serviços de forma segura no banco da IA.</p>
+            </div>
+            
+            <div class="slide-content-grid" style="grid-template-columns: 1.2fr 0.8fr; gap: 3rem;">
+                <div class="card">
+                    <div class="card-section-title">
+                        <i data-lucide="shield-check"></i>
+                        <span>Isolamento e Segurança de Variáveis</span>
+                    </div>
+                    <p style="color: var(--text-muted); line-height: 1.5; margin-bottom: 1.5rem;">Para que os agentes executem ações no mundo real, eles precisam de credenciais para APIs parceiras. O Paperclip isola essas chaves de forma segura:</p>
+                    
                     <div class="step-list">
                         <div class="step-item">
-                            <div class="step-icon"><i data-lucide="help-circle" size="18"></i></div>
+                            <div class="step-icon"><i data-lucide="key" size="14"></i></div>
                             <div class="step-content">
-                                <h4>Próximos Passos</h4>
-                                <p>Explorar a ferramenta localmente, desenhar organogramas focados e pilotar em fluxos de menor risco operacional.</p>
+                                <h4>Credenciais Injetadas Individualmente</h4>
+                                <p>As chaves de API acessórias (como Brave ou Resend) são injetadas estritamente nos agentes encarregados de usá-las, evitando exposição global.</p>
                             </div>
                         </div>
                     </div>
@@ -1026,29 +1280,156 @@
                 <div class="example-box">
                     <div>
                         <div class="example-header">
-                            <span class="example-badge"><i data-lucide="rocket" size="16"></i> Visão de Futuro</span>
-                            <h3 class="example-title">O Papel do Conselho Diretor</h3>
+                            <span class="example-badge"><i data-lucide="lock" size="16"></i> Secrets Manager</span>
+                            <h3 class="example-title">Configurar Segredo</h3>
                         </div>
-                        <div class="example-body">
-                            <p>A regra de ouro da orquestração de multiagentes na atualidade:</p>
-                            
-                            <div class="example-highlight-box secondary" style="margin: 1.5rem 0">
-                                <div class="example-highlight-title secondary"><i data-lucide="user-check" size="18"></i> O Julgamento Humano:</div>
-                                <div class="example-highlight-content">
-                                    "A IA cuida da repetição e da velocidade. A liderança humana é responsável pela estratégia, ética, qualidade final e direcionamento da empresa."
+                        <div class="example-body" style="font-size: 0.9rem; margin-top: 1rem;">
+                            <div style="background: #FFFFFF; padding: 1rem; border-radius: 6px; border: 1px solid #E2E8F0; display: flex; flex-direction: column; gap: 0.75rem;">
+                                <div>
+                                    <div style="font-size: 0.75rem; font-weight: 700; color: var(--text-muted);">KEY</div>
+                                    <div style="padding: 0.4rem; background: #F1F5F9; border-radius: 4px; font-family: monospace; font-size: 0.8rem; margin-top: 0.25rem;">BRAVE_SEARCH_API_KEY</div>
+                                </div>
+                                <div>
+                                    <div style="font-size: 0.75rem; font-weight: 700; color: var(--text-muted);">VALUE</div>
+                                    <div style="padding: 0.4rem; background: #F1F5F9; border-radius: 4px; font-family: monospace; font-size: 0.8rem; margin-top: 0.25rem;">bv_••••••••••••••••••••</div>
                                 </div>
                             </div>
-
-                            <ul>
-                                <li><i data-lucide="arrow-right" size="18"></i> Comece pequeno: automatize um fluxo de cada vez.</li>
-                                <li><i data-lucide="arrow-right" size="18"></i> Monitore os custos através das travas de budget.</li>
-                                <li><i data-lucide="arrow-right" size="18"></i> Revise as entregas na aba Kanban de Issues.</li>
-                            </ul>
                         </div>
                     </div>
-                    <div class="example-footer">
-                        <span style="font-weight: 700; color: var(--accent-primary)">"A IA executa as tarefas, mas a direção pertence a você."</span>
-                        <i data-lucide="smile" size="20" style="color: var(--accent-primary)"></i>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 18: EXEMPLO PRÁTICO DE AÇÃO (INTERNET E E-MAIL) -->
+        <section class="slide" data-slide="18">
+            <div class="slide-header">
+                <div class="slide-topic-meta">
+                    <i data-lucide="mail" size="16" style="color: var(--text-accent);"></i>
+                    <span>Módulo 6: Avançado - Integrações e Habilidades</span>
+                </div>
+                <h2 class="slide-title">Ação Prática: Internet e E-mail</h2>
+                <p class="slide-subtitle">Exemplo prático de fluxo de pesquisa com Brave Search e envio automático via Resend.</p>
+            </div>
+            
+            <div class="slide-content-grid" style="grid-template-columns: 1.15fr 0.85fr; gap: 3rem;">
+                <div class="card">
+                    <div class="card-section-title">
+                        <i data-lucide="globe"></i>
+                        <span>Integração de APIs de Terceiros</span>
+                    </div>
+                    <div class="concept-box" style="margin-top: 0.5rem;">
+                        <h4><i data-lucide="search" size="16" style="vertical-align: middle; color: var(--text-accent);"></i> Brave Search API (Pesquisa)</h4>
+                        <p style="font-size: 0.85rem; margin-top: 0.25rem;">Permite que a IA pesquise na web atualizada, coletando dados recentes e evitando informações desatualizadas.</p>
+                    </div>
+                    <div class="concept-box" style="margin-top: 1rem;">
+                        <h4><i data-lucide="send" size="16" style="vertical-align: middle; color: var(--text-accent);"></i> Resend API (Envio de E-mail)</h4>
+                        <p style="font-size: 0.85rem; margin-top: 0.25rem;">Permite que o agente envie e-mails diretamente para a sua caixa de entrada pessoal com os resultados processados.</p>
+                    </div>
+                </div>
+
+                <div class="example-box">
+                    <div>
+                        <div class="example-header">
+                            <span class="example-badge"><i data-lucide="play" size="16"></i> Fluxo Real</span>
+                            <h3 class="example-title">Executando Tarefa</h3>
+                        </div>
+                        <div class="example-body" style="font-size: 0.9rem; margin-top: 1rem;">
+                            <div style="background: #FFFFFF; padding: 1rem; border-radius: 6px; border: 1px solid #E2E8F0; margin-bottom: 0.75rem;">
+                                <strong>Comando:</strong> "Pesquisar as top 5 notícias de IA hoje e enviar para o meu e-mail."
+                            </div>
+                            <div style="background: #D1FAE5; padding: 0.75rem; border-radius: 6px; color: #065F46; font-weight: 700; font-size: 0.8rem;">
+                                <i data-lucide="mail-check" size="16" style="vertical-align: middle;"></i> E-mail enviado com sucesso via Resend!
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 19: SKILLS.MD (AS HABILIDADES DA IA) -->
+        <section class="slide" data-slide="19">
+            <div class="slide-header">
+                <div class="slide-topic-meta">
+                    <i data-lucide="file-code" size="16" style="color: var(--text-accent);"></i>
+                    <span>Módulo 6: Avançado - Integrações e Habilidades</span>
+                </div>
+                <h2 class="slide-title">SKILLS.md: Habilidades Extras</h2>
+                <p class="slide-subtitle">Como ensinar novas diretrizes operacionais para a IA sem precisar retreiná-la.</p>
+            </div>
+            
+            <div class="slide-content-grid" style="grid-template-columns: 1fr 1fr; gap: 3rem;">
+                <div class="card">
+                    <div class="card-section-title">
+                        <i data-lucide="graduation-cap"></i>
+                        <span>O arquivo SKILLS.md</span>
+                    </div>
+                    <p style="color: var(--text-muted); line-height: 1.5; margin-bottom: 1.5rem;">O <code>SKILLS.md</code> funciona como um manual de cabeceira de instruções específicas lidas dinamicamente pela IA antes do trabalho:</p>
+                    
+                    <div class="concept-box">
+                        <h4><i data-lucide="check" size="16" style="vertical-align: middle;"></i> O que incluir no arquivo:</h4>
+                        <p style="font-size: 0.85rem; margin-top: 0.4rem; color: var(--text-muted);">Padrões de estilo de escrita, processos para deploy automático em servidores, ou frameworks obrigatórios de testes de código do banco de dados.</p>
+                    </div>
+                </div>
+
+                <div class="example-box">
+                    <div>
+                        <div class="example-header">
+                            <span class="example-badge"><i data-lucide="code" size="16"></i> Código SKILLS.md</span>
+                            <h3 class="example-title">Diretriz Exemplo</h3>
+                        </div>
+                        <div class="example-body" style="font-size: 0.85rem; font-family: monospace; margin-top: 1rem;">
+                            <div style="background: #0F172A; padding: 1.25rem; border-radius: 8px; color: #38BDF8; line-height: 1.4;">
+                                <div># Habilidade: Testes Unitários</div>
+                                <div style="color: #E2E8F0;">1. Sempre escreva testes usando Jest.</div>
+                                <div style="color: #E2E8F0;">2. Mantenha cobertura acima de 80%.</div>
+                                <div style="color: #F59E0B;">3. Execute testes antes do commit.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 20: CONCLUSÃO, LIMITAÇÕES E PRÓXIMOS PASSOS -->
+        <section class="slide" data-slide="20">
+            <div class="slide-header">
+                <div class="slide-topic-meta">
+                    <i data-lucide="flag" size="16" style="color: var(--text-accent);"></i>
+                    <span>Módulo 7: Fechamento</span>
+                </div>
+                <h2 class="slide-title">Conclusão e Próximos Passos</h2>
+                <p class="slide-subtitle">O equilíbrio correto entre a automação da IA e a estratégia humana nas tomadas de decisão.</p>
+            </div>
+            
+            <div class="slide-content-grid" style="grid-template-columns: 1.15fr 0.85fr; gap: 3rem;">
+                <div class="card">
+                    <div class="card-section-title">
+                        <i data-lucide="clipboard-check"></i>
+                        <span>Resumo Prático da Apresentação</span>
+                    </div>
+                    <ul style="list-style: none; display: flex; flex-direction: column; gap: 1rem; color: var(--text-muted); font-size: 1rem; margin-top: 1rem;">
+                        <li style="display: flex; align-items: flex-start; gap: 0.5rem;"><i data-lucide="check" size="18" style="color: #10B981; flex-shrink: 0; margin-top: 0.2rem;"></i> O Paperclip tira o trabalho braçal da operação diária.</li>
+                        <li style="display: flex; align-items: flex-start; gap: 0.5rem;"><i data-lucide="check" size="18" style="color: #10B981; flex-shrink: 0; margin-top: 0.2rem;"></i> A liderança humana permanece sendo vital para o direcionamento estratégico.</li>
+                        <li style="display: flex; align-items: flex-start; gap: 0.5rem;"><i data-lucide="check" size="18" style="color: #10B981; flex-shrink: 0; margin-top: 0.2rem;"></i> O controle rígido de orçamentos evita custos surpresa com APIs.</li>
+                    </ul>
+                </div>
+
+                <div class="example-box" style="background: #EFF6FF;">
+                    <div>
+                        <div class="example-header">
+                            <span class="example-badge"><i data-lucide="link" size="16"></i> Links Oficiais</span>
+                            <h3 class="example-title">Recursos e Suporte</h3>
+                        </div>
+                        <div class="example-body" style="font-size: 1rem; font-weight: 600; display: flex; flex-direction: column; gap: 1rem; margin-top: 1.5rem; color: var(--text-main);">
+                            <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                <i data-lucide="github" size="20" style="color: var(--text-accent);"></i>
+                                <span>github.com/paperclipai/core</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                <i data-lucide="help-circle" size="20" style="color: var(--text-accent);"></i>
+                                <span>documentacao.paperclip.ai</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1073,7 +1454,7 @@
 
         // Estado da Apresentação
         let currentSlide = 1;
-        const totalSlides = 8;
+        const totalSlides = 20;
 
         const slides = document.querySelectorAll('.slide');
         const btnPrev = document.getElementById('btn-prev');
