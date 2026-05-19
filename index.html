@@ -102,12 +102,15 @@
             padding: 4rem 6rem;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: flex-start;
             opacity: 0;
             pointer-events: none;
             transform: translateY(20px) scale(0.98);
             transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
             overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: thin;
+            scrollbar-color: rgba(0, 0, 0, 0.15) transparent;
         }
 
         .slide.active {
@@ -491,12 +494,92 @@
             cursor: not-allowed;
         }
 
+        .responsive-steps-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+        }
+        .responsive-kanban-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+        }
+
         @media (max-width: 1400px) {
-            .slide { padding: 2rem 3rem; }
-            .slide-content-grid { grid-template-columns: 1fr; gap: 2rem; }
-            .slide-title { font-size: 2.5rem; }
-            .hero-slide .slide-title { font-size: 4rem; }
+            .slide { 
+                padding: 3rem 4rem 6rem 4rem; 
+            }
+            .slide-content-grid { 
+                grid-template-columns: 1fr !important; 
+                gap: 2rem; 
+                height: auto !important;
+            }
+            .slide-title { font-size: 2.4rem; }
+            .hero-slide .slide-title { font-size: 3.5rem; }
             .hero-features { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 992px) {
+            .slide { 
+                padding: 2rem 2rem 6rem 2rem; 
+            }
+            .slide-header {
+                margin-bottom: 1.5rem;
+            }
+            .slide-title { font-size: 2rem; }
+            .slide-subtitle { font-size: 1.1rem; }
+            
+            .controls {
+                bottom: 1.5rem;
+                right: 2rem;
+            }
+            
+            .card {
+                gap: 1rem;
+            }
+            
+            .example-box {
+                padding: 1.5rem;
+            }
+
+            .responsive-steps-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .slide { 
+                padding: 1.5rem 1rem 5.5rem 1rem; 
+            }
+            .slide-header {
+                margin-bottom: 1.25rem;
+            }
+            .slide-title { font-size: 1.65rem; }
+            .slide-subtitle { font-size: 0.95rem; }
+            
+            .controls {
+                bottom: 1rem;
+                right: 1rem;
+            }
+            
+            .btn-nav {
+                width: 2.5rem;
+                height: 2.5rem;
+            }
+            
+            .concept-box {
+                padding: 1rem;
+            }
+            
+            .example-box {
+                padding: 1rem;
+            }
+
+            .responsive-steps-grid {
+                grid-template-columns: 1fr !important;
+            }
+
+            .responsive-kanban-grid {
+                grid-template-columns: 1fr !important;
+            }
         }
     </style>
 </head>
@@ -635,7 +718,7 @@
             </div>
             
             <div style="display: flex; flex-direction: column; gap: 3.5rem; align-items: center; width: 100%; max-width: 1100px; margin: 0 auto;">
-                <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; width: 100%;">
+                <div class="responsive-steps-grid" style="gap: 1.5rem; width: 100%;">
                     <div class="concept-box" style="text-align: center; background: #F8FAFC; padding: 1.5rem;">
                         <div style="display: inline-flex; align-items: center; justify-content: center; width: 2.5rem; height: 2.5rem; border-radius: 50%; background: #EFF6FF; color: var(--text-accent); font-weight: 700; margin-bottom: 1rem; font-size: 1.1rem;">1</div>
                         <h4 style="justify-content: center; font-size: 1.05rem;">Missão Core</h4>
@@ -1137,7 +1220,7 @@
                 </div>
 
                 <div class="example-box" style="border: 1px solid #E2E8F0; padding: 1.25rem;">
-                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; width: 100%; height: 100%;">
+                    <div class="responsive-kanban-grid" style="gap: 0.75rem; width: 100%;">
                         <div style="background: #F1F5F9; padding: 0.5rem; border-radius: 6px; display: flex; flex-direction: column; gap: 0.5rem;">
                             <div style="font-weight: 700; font-size: 0.75rem; color: var(--text-muted);">TO DO</div>
                             <div style="background: #FFFFFF; padding: 0.5rem; border-radius: 4px; font-size: 0.7rem; border: 1px solid #E2E8F0;">#105 Enviar e-mail</div>
