@@ -12,9 +12,9 @@
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
         :root {
-            --bg-primary: #FFFFFF;
-            --bg-secondary: #F8FAFC;
-            --bg-card: transparent;
+            --bg-primary: #F8FAFC;
+            --bg-secondary: #EFF6FF;
+            --bg-card: #FFFFFF;
             
             --text-main: #1E293B;
             --text-muted: #64748B;
@@ -56,13 +56,18 @@
             pointer-events: none;
             z-index: 0;
             overflow: hidden;
+            background-image: 
+                radial-gradient(rgba(0, 82, 255, 0.03) 1px, transparent 1px),
+                radial-gradient(rgba(0, 82, 255, 0.02) 1.5px, transparent 1.5px);
+            background-size: 24px 24px, 48px 48px;
+            background-position: 0 0, 12px 12px;
         }
 
         .orb {
             position: absolute;
             border-radius: 50%;
             filter: blur(140px);
-            opacity: 0.04;
+            opacity: 0.08;
             transition: all 0.5s ease;
         }
 
@@ -165,13 +170,20 @@
         /* Cards Principais (Esquerda) */
         .card {
             background: var(--bg-card);
-            border-radius: 0.75rem;
-            padding: 0;
-            box-shadow: none;
+            border: 1px solid rgba(0, 82, 255, 0.06);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.02);
             display: flex;
             flex-direction: column;
             gap: 1.5rem;
             position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            border-color: rgba(0, 82, 255, 0.15);
+            box-shadow: 0 12px 40px rgba(0, 82, 255, 0.04);
         }
 
         .card-section-title {
@@ -268,15 +280,22 @@
 
         /* Exemplo Prático Box (Direita) */
         .example-box {
-            background: #F8FAFC;
-            border: none;
-            border-radius: 0.75rem;
+            background: var(--bg-card);
+            border: 1px solid rgba(0, 82, 255, 0.06);
+            border-radius: 12px;
             padding: 2rem;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.02);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             position: relative;
             overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .example-box:hover {
+            border-color: rgba(0, 82, 255, 0.15);
+            box-shadow: 0 12px 40px rgba(0, 82, 255, 0.04);
         }
 
         .example-header {
@@ -316,7 +335,7 @@
         }
 
         .example-highlight-box {
-            background: #FFFFFF;
+            background: #F8FAFC;
             border: none !important;
             border-left: 3px solid var(--accent-secondary) !important;
             border-radius: 0.375rem;
@@ -470,8 +489,8 @@
         }
 
         .btn-nav {
-            background: #F1F5F9;
-            border: none;
+            background: #FFFFFF;
+            border: 1px solid rgba(0, 82, 255, 0.08);
             color: #475569;
             width: 2.75rem;
             height: 2.75rem;
@@ -481,6 +500,7 @@
             align-items: center;
             justify-content: center;
             transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
         }
 
         .btn-nav:hover:not(:disabled) {
@@ -492,6 +512,181 @@
         .btn-nav:disabled {
             opacity: 0.25;
             cursor: not-allowed;
+        }
+
+        .orb-3 {
+            top: 40%;
+            left: 30%;
+            width: 30vw;
+            height: 30vw;
+            background: #10B981;
+            opacity: 0.05;
+            filter: blur(160px);
+        }
+
+        /* Slide Indicator */
+        .slide-indicator {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: #FFFFFF;
+            border: 1px solid rgba(0, 82, 255, 0.08);
+            color: #475569;
+            font-family: var(--font-title);
+            font-size: 0.95rem;
+            font-weight: 700;
+            padding: 0 1.25rem;
+            border-radius: 100px;
+            height: 2.75rem;
+            user-select: none;
+            min-width: 5.5rem;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+        }
+
+        /* Organogram Diagram on Slide 1 */
+        .org-preview-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            max-width: 480px;
+            padding: 1.5rem;
+            background: #FFFFFF;
+            border: 1px solid rgba(0, 82, 255, 0.08);
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+            position: relative;
+            margin: 0 auto;
+        }
+
+        .org-node {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.6rem 1rem;
+            background: #FFFFFF;
+            border: 1.5px solid #E2E8F0;
+            border-radius: 10px;
+            width: 200px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+            z-index: 2;
+            transition: all 0.3s ease;
+        }
+
+        .org-node:hover {
+            transform: translateY(-2px);
+            border-color: var(--accent-primary);
+            box-shadow: 0 6px 15px rgba(0, 82, 255, 0.08);
+        }
+
+        .node-board {
+            border-color: #CBD5E1;
+        }
+        
+        .node-ceo {
+            border-color: var(--accent-primary);
+        }
+        
+        .node-cto, .node-cmo {
+            border-color: var(--accent-tertiary);
+        }
+
+        .node-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 2rem;
+            height: 2rem;
+            border-radius: 6px;
+            background: #EFF6FF;
+            color: var(--accent-primary);
+            flex-shrink: 0;
+        }
+
+        .node-info {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+        }
+
+        .node-role {
+            font-weight: 700;
+            font-size: 0.85rem;
+            color: var(--text-main);
+        }
+
+        .node-status {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        /* Connectors */
+        .org-connector-v {
+            width: 2px;
+            height: 2rem;
+            background: linear-gradient(to bottom, #CBD5E1, var(--accent-primary));
+            position: relative;
+        }
+        
+        .org-connector-v::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -1px;
+            width: 4px;
+            height: 8px;
+            background: var(--accent-primary);
+            border-radius: 50%;
+            animation: pulse-down-anim 2s infinite ease-in-out;
+        }
+
+        .org-branch-container {
+            position: relative;
+            width: 220px;
+            height: 2rem;
+        }
+
+        .org-connector-branch-left {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 50%;
+            height: 100%;
+            border-left: 2px solid var(--accent-primary);
+            border-bottom: 2px solid var(--accent-primary);
+            border-bottom-left-radius: 10px;
+        }
+
+        .org-connector-branch-right {
+            position: absolute;
+            top: 0;
+            right: 50%;
+            width: 50%;
+            height: 100%;
+            border-right: 2px solid var(--accent-primary);
+            border-bottom: 2px solid var(--accent-primary);
+            border-bottom-right-radius: 10px;
+        }
+
+        .org-bottom-row {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            width: 100%;
+            margin-top: -2px;
+        }
+
+        @keyframes pulse-down-anim {
+            0% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(24px);
+                opacity: 0;
+            }
         }
 
         .responsive-steps-grid {
@@ -589,6 +784,7 @@
     <div class="bg-effects">
         <div class="orb orb-1"></div>
         <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
     </div>
 
     <!-- Conteúdo dos Slides -->
@@ -603,12 +799,48 @@
                     </div>
                     <h1 class="slide-title" style="font-size: 3.8rem; margin-bottom: 1.5rem; line-height: 1.15;">Zero-Human Company</h1>
                     <p class="slide-subtitle" style="font-size: 1.4rem; margin-bottom: 2rem; line-height: 1.4; color: var(--text-muted);">Construindo sua empresa autônoma com Paperclip AI.</p>
-                    <div style="font-size: 1.05rem; color: var(--text-main); line-height: 1.6; background: var(--bg-secondary); padding: 1.25rem; border-radius: 8px;">
+                    <div style="font-size: 1.05rem; color: var(--text-main); line-height: 1.6; background: #FFFFFF; border: 1px solid rgba(0, 82, 255, 0.08); padding: 1.25rem; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.01);">
                         Aprenda a orquestrar, instalar e gerenciar uma equipe inteira de agentes de inteligência artificial autônomos sem necessidade de supervisão humana constante.
                     </div>
                 </div>
-                <div style="display: flex; justify-content: center; align-items: center;">
-                    <img src="assets/office_ai.png" alt="Escritório do Futuro" style="width: 100%; max-width: 500px; border-radius: 12px; box-shadow: 0 20px 40px rgba(0,0,0,0.06); object-fit: cover;">
+                <div style="display: flex; justify-content: center; align-items: center; width: 100%;">
+                    <div class="org-preview-container">
+                        <div class="org-node node-board">
+                            <div class="node-icon"><i data-lucide="users" size="18"></i></div>
+                            <div class="node-info">
+                                <span class="node-role">Conselho (Você)</span>
+                                <span class="node-status">Aprovador / Board</span>
+                            </div>
+                        </div>
+                        <div class="org-connector-v"></div>
+                        <div class="org-node node-ceo">
+                            <div class="node-icon"><i data-lucide="bot" size="18"></i></div>
+                            <div class="node-info">
+                                <span class="node-role">CEO (IA Agent)</span>
+                                <span class="node-status">Orquestrador</span>
+                            </div>
+                        </div>
+                        <div class="org-branch-container">
+                            <div class="org-connector-branch-left"></div>
+                            <div class="org-connector-branch-right"></div>
+                        </div>
+                        <div class="org-bottom-row">
+                            <div class="org-node node-cto" style="width: 180px;">
+                                <div class="node-icon"><i data-lucide="code" size="18"></i></div>
+                                <div class="node-info">
+                                    <span class="node-role">CTO (IA)</span>
+                                    <span class="node-status">Desenvolvedor</span>
+                                </div>
+                            </div>
+                            <div class="org-node node-cmo" style="width: 180px;">
+                                <div class="node-icon"><i data-lucide="megaphone" size="18"></i></div>
+                                <div class="node-info">
+                                    <span class="node-role">CMO (IA)</span>
+                                    <span class="node-status">Marketing</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -1520,11 +1752,12 @@
 
     </main>
 
-    <!-- Controles de Navegação Flutuantes (Apenas as Setas) -->
+    <!-- Controles de Navegação Flutuantes -->
     <div class="controls">
         <button class="btn-nav" id="btn-prev" disabled title="Slide anterior">
             <i data-lucide="chevron-left" size="24"></i>
         </button>
+        <span class="slide-indicator" id="slide-num">1 / 20</span>
         <button class="btn-nav" id="btn-next" title="Próximo slide">
             <i data-lucide="chevron-right" size="24"></i>
         </button>
@@ -1543,6 +1776,8 @@
         const btnPrev = document.getElementById('btn-prev');
         const btnNext = document.getElementById('btn-next');
 
+        const slideNum = document.getElementById('slide-num');
+
         function updatePresentation(slideIndex) {
             if (slideIndex < 1) slideIndex = 1;
             if (slideIndex > totalSlides) slideIndex = totalSlides;
@@ -1558,6 +1793,9 @@
 
             btnPrev.disabled = currentSlide === 1;
             btnNext.disabled = currentSlide === totalSlides;
+            if (slideNum) {
+                slideNum.textContent = `${currentSlide} / ${totalSlides}`;
+            }
         }
 
         btnPrev.addEventListener('click', () => updatePresentation(currentSlide - 1));
