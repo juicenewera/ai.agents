@@ -18,11 +18,11 @@
             
             --text-main: #1E293B;
             --text-muted: #64748B;
-            --text-accent: #2563EB;
+            --text-accent: #0052FF;
             
-            --accent-primary: #1E3A8A;
-            --accent-secondary: #2563EB;
-            --accent-tertiary: #475569;
+            --accent-primary: #0052FF;
+            --accent-secondary: #0066FF;
+            --accent-tertiary: #4F46E5;
             
             --font-title: 'Outfit', sans-serif;
             --font-body: 'Inter', sans-serif;
@@ -43,6 +43,43 @@
             display: flex;
             flex-direction: column;
             -webkit-font-smoothing: antialiased;
+            position: relative;
+        }
+
+        /* Efeitos de Fundo */
+        .bg-effects {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(140px);
+            opacity: 0.04;
+            transition: all 0.5s ease;
+        }
+
+        .orb-1 {
+            top: -15%;
+            right: -10%;
+            width: 50vw;
+            height: 50vw;
+            background: var(--text-accent);
+        }
+
+        .orb-2 {
+            bottom: -15%;
+            left: -10%;
+            width: 45vw;
+            height: 45vw;
+            background: #4F46E5;
         }
 
         /* Container de Slides */
@@ -53,6 +90,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            z-index: 2;
         }
 
         .slide {
@@ -464,7 +502,11 @@
 </head>
 <body>
 
-
+    <!-- Efeitos Visuais de Fundo (Glow Orbs Minimalistas) -->
+    <div class="bg-effects">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+    </div>
 
     <!-- Conteúdo dos Slides -->
     <main id="main-content">
